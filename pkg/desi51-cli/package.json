@@ -1,0 +1,72 @@
+{
+	"name": "desi51-cli",
+	"version": "0.5.8",
+	"description": "The application cli as frontend of desi51",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/charlyoleg2/parame51.git"
+	},
+	"homepage": "https://github.com/charlyoleg2/parame51#readme",
+	"keywords": [
+		"cad",
+		"programmatic",
+		"2D",
+		"circle",
+		"stroke",
+		"arc",
+		"gear"
+	],
+	"author": "charlyoleg",
+	"tsup": {
+		"entry": [
+			"src/desi51-cli.ts"
+		],
+		"format": "esm",
+		"splitting": false,
+		"dts": false,
+		"sourcemap": false,
+		"clean": true
+	},
+	"scripts": {
+		"dev": "tsup --watch",
+		"build": "tsup",
+		"check": "tsc --noEmit",
+		"pretty": "prettier --check .",
+		"format": "prettier --write .",
+		"lint": "eslint .",
+		"test:unit": "vitest",
+		"test:unit:once": "vitest --run",
+		"test:bats": "bats test/test1.bats",
+		"ci": "run-s check build pretty lint test:unit:once test:bats",
+		"run": "dist/desi51-cli.js",
+		"clean": "shx rm -fr build dist node_modules output"
+	},
+	"dependencies": {
+		"desi51": "^0.5.2",
+		"geomcli": "^0.5.4",
+		"geometrix": "^0.5.1"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^6.16.0",
+		"@typescript-eslint/parser": "^6.16.0",
+		"bats": "^1.10.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^3.1.1",
+		"shx": "^0.3.4",
+		"tsup": "^8.0.1",
+		"typescript": "^5.3.3",
+		"vitest": "^1.1.0"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/desi51-cli.d.ts",
+			"default": "./dist/desi51-cli.js"
+		}
+	},
+	"bin": "./dist/desi51-cli.js",
+	"types": "dist/desi51-cli.d.ts",
+	"type": "module"
+}

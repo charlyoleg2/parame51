@@ -1,0 +1,52 @@
+{
+	"name": "parame51",
+	"version": "0.5.10",
+	"description": "The root directory of the parame51 packages",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/charlyoleg2/parame51.git"
+	},
+	"keywords": [
+		"cad",
+		"programmatic",
+		"2D",
+		"circle",
+		"stroke",
+		"arc",
+		"gear"
+	],
+	"author": "charlyoleg2",
+	"scripts": {
+		"desi51:dev": "npm -w desi51 run dev",
+		"desi51:ci": "npm -w desi51 run ci",
+		"desi51:svgo": "npm -w desi51 run svgo",
+		"desi51:clean": "npm -w desi51 run clean",
+		"desi51:version": "npm -w desi51 version patch",
+		"desi51:publish": "npm -w desi51 publish --provenance",
+		"desi51-ui:dev": "npm -w desi51-ui run dev",
+		"desi51-ui:ci": "npm -w desi51-ui run ci",
+		"desi51-ui:clean": "npm -w desi51-ui run clean",
+		"desi51-cli:ci": "npm -w desi51-cli run ci",
+		"desi51-cli:clean": "npm -w desi51-cli run clean",
+		"dev": "run-p desi51:dev desi51-ui:dev",
+		"ci": "run-s desi51:ci desi51-ui:ci desi51-cli:ci",
+		"ci2": "run-s desi51:ci desi51-ui:ci",
+		"ci3": "run-s desi51:ci desi51-cli:ci",
+		"svgo": "run-s desi51:svgo",
+		"clean-root": "shx rm -fr tmp output output2",
+		"clean": "run-s clean-root desi51:clean desi51-ui:clean desi51-cli:clean",
+		"preview": "run-s desi51-ui:preview",
+		"versions": "run-s desi51:version",
+		"gh-publish": "run-s desi51:publish",
+		"ls-pkg": "ls -la pkg"
+	},
+	"workspaces": [
+		"pkg/*"
+	],
+	"type": "module",
+	"devDependencies": {
+		"npm-run-all": "^4.1.5",
+		"shx": "^0.3.4"
+	}
+}

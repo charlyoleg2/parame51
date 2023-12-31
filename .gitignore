@@ -1,0 +1,3 @@
+# .gitignore of parame51_root
+node_modules/
+output/
