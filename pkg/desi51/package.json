@@ -38,10 +38,10 @@
 		"test:unit": "vitest",
 		"test:unit:once": "vitest --run",
 		"ci": "run-s check build pretty lint test:unit:once",
-		"svgo1": "svgo --config ../paramui/svgo.config.cjs -f src/myGroup1/svg -o export_svg",
-		"svgo2": "svgo --config ../paramui/svgo.config.cjs -f src/myGroup2/svg -o export_svg",
+		"svgo1": "svgo --config ./svgo.config.cjs -f src/myGroup1/svg -o export_svg",
+		"svgo2": "svgo --config ./svgo.config.cjs -f src/myGroup2/svg -o export_svg",
 		"svgCp": "shx cp export_svg/*.svg ../desi51-ui/static",
-		"svgo": "run-s svgo1 svgo2 svgCp",
+		"svgo": "run-s svgo1 svgCp",
 		"clean": "shx rm -fr dist node_modules"
 	},
 	"dependencies": {
