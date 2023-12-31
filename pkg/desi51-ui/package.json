@@ -16,9 +16,9 @@
 		"clean": "shx rm -fr .svelte-kit build node_modules"
 	},
 	"dependencies": {
-		"desi51": "^0.5.2",
-		"geometrix": "^0.5.1",
-		"geomui": "^0.5.3"
+		"desi51": "^0.5.11",
+		"geometrix": "^0.5.11",
+		"geomui": "^0.5.13"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.1",
