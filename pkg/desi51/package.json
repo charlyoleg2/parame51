@@ -2,7 +2,7 @@
 	"name": "desi51",
 	"version": "0.5.11",
 	"description": "Example designs made with parametrix",
-	"private": false,
+	"private": true,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/charlyoleg2/parame51.git"
