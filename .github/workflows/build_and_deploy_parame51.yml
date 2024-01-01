@@ -37,13 +37,13 @@ jobs:
                   BASE_PATH: '/parame51'
               run: |
                   npm run ci
-                  npm -w paramui run github-pages-fix
+                  npm -w desi51-ui run github-pages-fix
 
             - name: Deploy Parame51 to GitHub pages
               uses: crazy-max/ghaction-github-pages@v4
               with:
                   target_branch: gh-pages
-                  build_dir: pkg/paramui/build
+                  build_dir: pkg/desi51-ui/build
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
