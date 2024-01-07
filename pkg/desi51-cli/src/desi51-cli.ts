@@ -3,6 +3,7 @@
 
 import type { tAllPageDef } from 'geometrix';
 import { geom_cli } from 'geomcli';
+import packag from '../package.json';
 import {
 	myPartADef
 	//myPartBDef,
@@ -15,6 +16,6 @@ const designList: tAllPageDef = {
 	//'myGroup2/myPartC': myPartCDef
 };
 
-console.log('desi51-cli says hello');
-await geom_cli(process.argv, designList, 'output');
-console.log('desi51-cli says bye');
+//console.log('desi51-cli says hello');
+await geom_cli(process.argv, designList, packag, 'output');
+//console.log('desi51-cli says bye');

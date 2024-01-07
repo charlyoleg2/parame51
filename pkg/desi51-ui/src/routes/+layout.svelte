@@ -1,5 +1,9 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { version_details } from 'geometrix';
+	import appPackage from '../../package.json';
+
+	const detailed_versions = version_details(appPackage);
 </script>
 
 <h1>Welcome to desi51-ui</h1>
@@ -14,9 +18,19 @@
 	<slot />
 </main>
 <footer>
-	<a href="https://github.com/charlyoleg2/parame51">desi51-ui</a>, an example of usage of
-	<a href="https://www.npmjs.com/package/geometrix">geometrix</a> and
-	<a href="https://www.npmjs.com/package/geomui">geomui</a>.
+	<article>
+		<a href="https://github.com/charlyoleg2/parame51">desi51-ui</a>, an example of usage of
+		<a href="https://www.npmjs.com/package/geometrix">geometrix</a> and
+		<a href="https://www.npmjs.com/package/geomui">geomui</a>.
+	</article>
+	<article>
+		<h3>Desi51-ui version</h3>
+		<code>
+			{#each detailed_versions as dversion}
+				{dversion}<br />
+			{/each}
+		</code>
+	</article>
 </footer>
 
 <style lang="scss">
