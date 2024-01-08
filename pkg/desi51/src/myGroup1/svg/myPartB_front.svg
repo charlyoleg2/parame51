@@ -27,8 +27,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      inkscape:zoom="2.1166667"
-     inkscape:cx="259.37008"
-     inkscape:cy="838.11023"
+     inkscape:cx="134.64567"
+     inkscape:cy="157.79527"
      inkscape:window-width="1370"
      inkscape:window-height="836"
      inkscape:window-x="0"
@@ -37,6 +37,12 @@
      inkscape:current-layer="layer1" />
   <defs
      id="defs1">
+    <rect
+       x="84.836365"
+       y="71.473305"
+       width="126.055"
+       height="25.949186"
+       id="rect5" />
     <rect
        x="202.87476"
        y="294.39584"
@@ -93,7 +99,7 @@
        height="52.916668"
        x="19.108454"
        y="16.148823"
-       inkscape:export-filename="myPartB_front.svg"
+       inkscape:export-filename="myPartB_front.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <circle
@@ -154,5 +160,13 @@
          x="202.875"
          y="307.37308"
          id="tspan4">D1</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text5"
+       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5)"><tspan
+         x="84.835938"
+         y="84.449249"
+         id="tspan6">extShape [0..2]</tspan></text>
   </g>
 </svg>

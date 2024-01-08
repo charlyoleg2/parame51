@@ -30,9 +30,9 @@ const pDef: tParamDef = {
 	partName: 'myPartA',
 	params: [
 		//pNumber(name, unit, init, min, max, step)
-		pNumber('D1', 'mm', 1000, 100, 4000, 10),
-		pNumber('E1', 'mm', 30, 1, 80, 1),
-		pNumber('L1', 'mm', 3000, 500, 8000, 100)
+		pNumber('D1', 'mm', 40, 10, 100, 2),
+		pNumber('E1', 'mm', 3, 1, 50, 1),
+		pNumber('L1', 'mm', 50, 10, 200, 10)
 	],
 	paramSvg: {
 		D1: 'myPartA_section.svg',
@@ -52,13 +52,17 @@ function pGeom(t: number, param: tParamVal): tGeom {
 	const figSide = figure();
 	rGeome.logstr += `${rGeome.partName} simTime: ${t}\n`;
 	try {
+		// 1: some preparation calculation
 		const R1 = param.D1 / 2;
+		// 2: checks on the parameter values
 		if (R1 < param.E1) {
 			throw `err089: D1 ${param.D1} too small compare to E1 ${param.E1}`;
 		}
+		// 3: any logs
 		rGeome.logstr += `myPartA-length: ${ffix(param.L1)} mm\n`;
 		rGeome.logstr += `myPartA-external-diameter: ${ffix(param.D1)} mm\n`;
 		rGeome.logstr += `myPartA-internal-diameter: ${ffix(param.D1 - 2 * param.E1)} mm\n`;
+		// 4: drawing of the figures
 		// figSection
 		figSection.addMain(contourCircle(0, 0, R1));
 		figSection.addMain(contourCircle(0, 0, R1 - param.E1));
@@ -80,6 +84,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			faceSection: figSection,
 			faceSide: figSide
 		};
+		// 5: recipes of the 3D construction
 		const designName = rGeome.partName;
 		rGeome.vol = {
 			extrudes: [
@@ -117,8 +122,10 @@ function pGeom(t: number, param: tParamVal): tGeom {
 				}
 			]
 		};
+		// 6: optional sub-design parameter export
 		// sub-design
 		rGeome.sub = {};
+		// 7: final log message
 		// finalize
 		rGeome.logstr += 'myPartA draw successfully!\n';
 		rGeome.calcErr = false;

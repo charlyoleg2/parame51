@@ -28,7 +28,7 @@
      inkscape:document-units="px"
      inkscape:zoom="2.1166667"
      inkscape:cx="134.64567"
-     inkscape:cy="157.79527"
+     inkscape:cy="195.59055"
      inkscape:window-width="1370"
      inkscape:window-height="836"
      inkscape:window-x="0"
@@ -37,6 +37,18 @@
      inkscape:current-layer="layer1" />
   <defs
      id="defs1">
+    <rect
+       x="83.158832"
+       y="287.13336"
+       width="120.16055"
+       height="27.925689"
+       id="rect14" />
+    <rect
+       x="84.836367"
+       y="71.473301"
+       width="126.055"
+       height="25.949187"
+       id="rect5" />
     <rect
        x="308.66265"
        y="884.30056"
@@ -218,7 +230,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect1);display:inline"><tspan
          x="22.019531"
          y="30.412139"
-         id="tspan7">myPartB.svg</tspan></text>
+         id="tspan1">myPartB.svg</tspan></text>
     <circle
        style="fill:none;stroke:#7f2aff;stroke-width:0.264583;stroke-linejoin:bevel"
        id="path1"
@@ -250,7 +262,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#7f2aff"><tspan
          x="186.49414"
          y="276.07425"
-         id="tspan11">0: circle</tspan></text>
+         id="tspan2">0: circle</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-5.915114,-50.53496)"
@@ -258,7 +270,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect3);display:inline;fill:#447821"><tspan
          x="174.35547"
          y="307.13675"
-         id="tspan12">1: triangle-up</tspan></text>
+         id="tspan3">1: triangle-up</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-12.149261,-34.150357)"
@@ -266,7 +278,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect4);display:inline;fill:#00aad4"><tspan
          x="174.75"
          y="339.69925"
-         id="tspan14">2: triangle-down</tspan></text>
+         id="tspan4">2: triangle-down</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 42.38359,32.470285 H 62.554781"
@@ -286,7 +298,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect6);display:inline"><tspan
          x="202.875"
          y="307.37308"
-         id="tspan15">D1</tspan></text>
+         id="tspan6">D1</tspan></text>
     <rect
        style="fill:none;stroke:#00aa88;stroke-width:0.264583;stroke-linejoin:bevel"
        id="rect7"
@@ -309,7 +321,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect8);display:inline;fill:#00aa88"><tspan
          x="197.56445"
          y="355.26175"
-         id="tspan16">0: horizontal</tspan></text>
+         id="tspan7">0: horizontal</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-12.665083,41.504544)"
@@ -317,7 +329,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect9);display:inline;fill:#7f2aff"><tspan
          x="211.15625"
          y="258.14456"
-         id="tspan17">1: slanted</tspan></text>
+         id="tspan8">1: slanted</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#RoundedArrow-9);marker-end:url(#RoundedArrow-9)"
        d="m 52.990804,91.55411 0.05661,12.88778"
@@ -329,7 +341,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect6-8);display:inline"><tspan
          x="202.875"
          y="307.37308"
-         id="tspan18">S1</tspan></text>
+         id="tspan9">S1</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#RoundedArrow-9-2);marker-end:url(#RoundedArrow-9-2)"
        d="m 26.353291,101.49841 10.192163,10.41002"
@@ -342,7 +354,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect6-8-8);display:inline"><tspan
          x="202.875"
          y="307.37308"
-         id="tspan19">S1</tspan></text>
+         id="tspan10">S1</tspan></text>
     <ellipse
        style="fill:none;stroke:#7f2aff;stroke-width:0.264583;stroke-linejoin:bevel"
        id="path1-0"
@@ -380,7 +392,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect10);display:inline"><tspan
          x="279.5918"
          y="719.0469"
-         id="tspan20">hollow?</tspan></text>
+         id="tspan11">hollow?</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#RoundedArrow)"
        d="m 46.565467,166.06582 9.418192,13.98815"
@@ -403,7 +415,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect13);display:inline"><tspan
          x="308.66211"
          y="897.27737"
-         id="tspan21">L1</tspan></text>
+         id="tspan12">L1</tspan></text>
     <rect
        style="fill:none;stroke:#666666;stroke-width:0.264583;stroke-linejoin:bevel"
        id="rect11"
@@ -411,5 +423,21 @@
        height="21.22011"
        x="21.391361"
        y="205.64653" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text5"
+       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5)"><tspan
+         x="84.835938"
+         y="84.449249"
+         id="tspan13">extShape [0..2]</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,1.4008789,4.1284179)"
+       id="text10"
+       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect14)"><tspan
+         x="83.158203"
+         y="300.1094"
+         id="tspan14">intShape [0..1]</tspan></text>
   </g>
 </svg>
