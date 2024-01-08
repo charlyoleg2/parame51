@@ -1,4 +1,5 @@
 // myPartA.ts
+// tutorial-1 : a simple design (a cylindrical tube) for showcasing the usage of geometrix
 
 import type {
 	//tContour,
@@ -31,12 +32,12 @@ const pDef: tParamDef = {
 		//pNumber(name, unit, init, min, max, step)
 		pNumber('D1', 'mm', 1000, 100, 4000, 10),
 		pNumber('E1', 'mm', 30, 1, 80, 1),
-		pNumber('H1', 'mm', 3000, 500, 8000, 100)
+		pNumber('L1', 'mm', 3000, 500, 8000, 100)
 	],
 	paramSvg: {
-		D1: 'myPartA_top.svg',
-		E1: 'myPartA_top.svg',
-		H1: 'myPartA_side.svg'
+		D1: 'myPartA_section.svg',
+		E1: 'myPartA_section.svg',
+		L1: 'myPartA_side.svg'
 	},
 	sim: {
 		tMax: 180,
@@ -47,7 +48,7 @@ const pDef: tParamDef = {
 
 function pGeom(t: number, param: tParamVal): tGeom {
 	const rGeome = initGeom(pDef.partName);
-	const figTop = figure();
+	const figSection = figure();
 	const figSide = figure();
 	rGeome.logstr += `${rGeome.partName} simTime: ${t}\n`;
 	try {
@@ -55,37 +56,38 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		if (R1 < param.E1) {
 			throw `err089: D1 ${param.D1} too small compare to E1 ${param.E1}`;
 		}
-		rGeome.logstr += `myPartA-height: ${ffix(param.H1)} mm\n`;
+		rGeome.logstr += `myPartA-length: ${ffix(param.L1)} mm\n`;
 		rGeome.logstr += `myPartA-external-diameter: ${ffix(param.D1)} mm\n`;
-		// figTop
-		figTop.addMain(contourCircle(0, 0, R1));
-		figTop.addMain(contourCircle(0, 0, R1 - param.E1));
+		rGeome.logstr += `myPartA-internal-diameter: ${ffix(param.D1 - 2 * param.E1)} mm\n`;
+		// figSection
+		figSection.addMain(contourCircle(0, 0, R1));
+		figSection.addMain(contourCircle(0, 0, R1 - param.E1));
 		// figSide
 		const ctrCylinderSideRight = contour(R1, 0)
-			.addSegStrokeA(R1, param.H1)
-			.addSegStrokeA(R1 - param.E1, param.H1)
+			.addSegStrokeA(R1, param.L1)
+			.addSegStrokeA(R1 - param.E1, param.L1)
 			.addSegStrokeA(R1 - param.E1, 0)
 			.closeSegStroke();
 		const ctrCylinderSideLeft = contour(-R1, 0)
 			.addSegStrokeR(param.E1, 0)
-			.addSegStrokeR(0, param.H1)
+			.addSegStrokeR(0, param.L1)
 			.addSegStrokeR(-param.E1, 0)
 			.closeSegStroke();
 		figSide.addMain(ctrCylinderSideRight);
 		figSide.addSecond(ctrCylinderSideLeft);
 		// final figure list
 		rGeome.fig = {
-			faceTop: figTop,
+			faceSection: figSection,
 			faceSide: figSide
 		};
 		const designName = rGeome.partName;
 		rGeome.vol = {
 			extrudes: [
 				{
-					outName: `subpax_${designName}_using_top`,
-					face: `${designName}_faceTop`,
+					outName: `subpax_${designName}_using_section`,
+					face: `${designName}_faceSection`,
 					extrudeMethod: EExtrude.eLinearOrtho,
-					length: param.H1,
+					length: param.L1,
 					rotate: [0, 0, 0],
 					translate: [0, 0, 0]
 				},
@@ -101,17 +103,17 @@ function pGeom(t: number, param: tParamVal): tGeom {
 				{
 					outName: `ipax_${designName}_intermediate_1`,
 					boolMethod: EBVolume.eUnion, // eIdentity, eIntersection, eUnion, eSubstraction
-					inList: [`subpax_${designName}_using_top`, `ipax_${designName}_using_side`]
+					inList: [`subpax_${designName}_using_section`, `ipax_${designName}_using_side`]
 				},
 				{
 					outName: `ipax_${designName}_intermediate_2`,
 					boolMethod: EBVolume.eIntersection,
-					inList: [`subpax_${designName}_using_top`, `ipax_${designName}_using_side`]
+					inList: [`subpax_${designName}_using_section`, `ipax_${designName}_using_side`]
 				},
 				{
 					outName: `pax_${designName}`,
 					boolMethod: EBVolume.eIdentity,
-					inList: [`subpax_${designName}_using_top`]
+					inList: [`subpax_${designName}_using_section`]
 				}
 			]
 		};
