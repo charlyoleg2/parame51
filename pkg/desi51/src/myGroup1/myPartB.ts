@@ -60,7 +60,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 	try {
 		const R1 = param.D1 / 2;
 		const triA = R1 / 2;
-		if (R1 < param.S1 / 2) {
+		if (triA < param.S1 / 2) {
 			throw `err063: D1 ${param.D1} too small compare to S1 ${param.S1}`;
 		}
 		rGeome.logstr += `myPartB-length: ${ffix(param.L1)} mm\n`;
@@ -91,7 +91,21 @@ function pGeom(t: number, param: tParamVal): tGeom {
 				throw `err087: param.extShape ${param.extShape} unkown!`;
 		}
 		if (param.hollow) {
-			figFront.addMain(contourCircle(0, 0, param.S1 / 2));
+			const ctr3 = contour(-param.S1 / 2, -param.S1 / 2)
+				.addSegStrokeR(param.S1, 0)
+				.addSegStrokeR(0, param.S1)
+				.addSegStrokeR(-param.S1, 0)
+				.closeSegStroke();
+			switch (param.intShape) {
+				case 0: // straight
+					figFront.addMain(ctr3);
+					break;
+				case 1: // slanted
+					figFront.addMain(ctr3.rotate(0, 0, Math.PI / 4));
+					break;
+				default:
+					throw `err107: param.intShape ${param.intShape} unkown!`;
+			}
 		}
 		// figSide
 		const ctrSide = contour(-param.L1 / 2, -R1)
