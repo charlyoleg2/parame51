@@ -59,7 +59,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 	rGeome.logstr += `${rGeome.partName} simTime: ${t}\n`;
 	try {
 		const R1 = param.D1 / 2;
-		const triA = R1 / 2;
+		const triA = R1 / Math.sqrt(1+2**2); // R1 / 2.23
 		if (triA < param.S1 / 2) {
 			throw `err063: D1 ${param.D1} too small compare to S1 ${param.S1}`;
 		}
@@ -72,7 +72,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			case 1: // triangle-up
 				{
 					const ctr1 = contour(0, R1)
-						.addSegStrokeR(-2 * triA, -3 * triA)
+						.addSegStrokeR(-2 * triA, -triA - R1)
 						.addSegStrokeR(4 * triA, 0)
 						.closeSegStroke();
 					figFront.addMain(ctr1);
@@ -81,7 +81,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			case 2: // triangle-down
 				{
 					const ctr2 = contour(0, -R1)
-						.addSegStrokeR(2 * triA, 3 * triA)
+						.addSegStrokeR(2 * triA, triA + R1)
 						.addSegStrokeR(-4 * triA, 0)
 						.closeSegStroke();
 					figFront.addMain(ctr2);
