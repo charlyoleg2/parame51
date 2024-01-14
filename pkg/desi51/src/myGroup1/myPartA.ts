@@ -55,17 +55,17 @@ function pGeom(t: number, param: tParamVal): tGeom {
 	const figSide = figure();
 	rGeome.logstr += `${rGeome.partName} simTime: ${t}\n`;
 	try {
-		// step-4: some preparation calculation
+		// step-4 : some preparation calculation
 		const R1 = param.D1 / 2;
-		// step-5: checks on the parameter values
+		// step-5 : checks on the parameter values
 		if (R1 < param.E1) {
 			throw `err089: D1 ${param.D1} too small compare to E1 ${param.E1}`;
 		}
-		// step-6: any logs
+		// step-6 : any logs
 		rGeome.logstr += `myPartA-length: ${ffix(param.L1)} mm\n`;
 		rGeome.logstr += `myPartA-external-diameter: ${ffix(param.D1)} mm\n`;
 		rGeome.logstr += `myPartA-internal-diameter: ${ffix(param.D1 - 2 * param.E1)} mm\n`;
-		// step-7: drawing of the figures
+		// step-7 : drawing of the figures
 		// figSection
 		figSection.addMain(contourCircle(0, 0, R1));
 		figSection.addMain(contourCircle(0, 0, R1 - param.E1));
@@ -87,7 +87,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			faceSection: figSection,
 			faceSide: figSide
 		};
-		// step-8: recipes of the 3D construction
+		// step-8 : recipes of the 3D construction
 		const designName = rGeome.partName;
 		rGeome.vol = {
 			extrudes: [
@@ -125,10 +125,10 @@ function pGeom(t: number, param: tParamVal): tGeom {
 				}
 			]
 		};
-		// step-9: optional sub-design parameter export
+		// step-9 : optional sub-design parameter export
 		// sub-design
 		rGeome.sub = {};
-		// step-10: final log message
+		// step-10 : final log message
 		// finalize
 		rGeome.logstr += 'myPartA draw successfully!\n';
 		rGeome.calcErr = false;
@@ -139,7 +139,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 	return rGeome;
 }
 
-// step-11: definiton of the final object that gathers the precedent object and function
+// step-11 : definiton of the final object that gathers the precedent object and function
 const myPartADef: tPageDef = {
 	pTitle: 'My Part-A',
 	pDescription: 'A simple cylinder for showcasing the usage of geometrix',
@@ -147,4 +147,5 @@ const myPartADef: tPageDef = {
 	pGeom: pGeom
 };
 
+// step-12 : export the final object
 export { myPartADef };
