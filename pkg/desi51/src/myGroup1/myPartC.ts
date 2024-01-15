@@ -147,24 +147,24 @@ function pGeom(t: number, param: tParamVal): tGeom {
 					face: `${designName}_faceBodySlant`,
 					extrudeMethod: EExtrude.eLinearOrtho,
 					length: 2 * R2,
-					rotate: [0, 0, 0],
-					translate: [0, 0, -R2]
+					rotate: [Math.PI / 2, 0, -Math.PI / 2],
+					translate: [R2, 0, 0]
 				},
 				{
 					outName: `subpax_${designName}_chimney`,
 					face: `${designName}_faceChimney`,
 					extrudeMethod: EExtrude.eLinearOrtho,
 					length: param.H1 + R2,
-					rotate: [0, 0, 0],
-					translate: [0, 0, -param.H1 - R2]
+					rotate: [Math.PI / 2, 0, 0],
+					translate: [0, 0, 0]
 				},
 				{
 					outName: `subpax_${designName}_chimneyH`,
 					face: `${designName}_faceChimneyHollow`,
 					extrudeMethod: EExtrude.eLinearOrtho,
 					length: param.H1 + R2,
-					rotate: [0, 0, 0],
-					translate: [0, 0, -param.H1 - R2]
+					rotate: [Math.PI / 2, 0, 0],
+					translate: [0, 0, 0]
 				}
 			],
 			volumes: [

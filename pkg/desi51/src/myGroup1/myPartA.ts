@@ -130,7 +130,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		rGeome.sub = {};
 		// step-10 : final log message
 		// finalize
-		rGeome.logstr += 'myPartA draw successfully!\n';
+		rGeome.logstr += 'myPartA drawn successfully!\n';
 		rGeome.calcErr = false;
 	} catch (emsg) {
 		rGeome.logstr += emsg as string;
