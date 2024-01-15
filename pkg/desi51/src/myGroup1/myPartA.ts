@@ -98,7 +98,8 @@ function pGeom(t: number, param: tParamVal): tGeom {
 					length: param.L1,
 					rotate: [0, 0, 0],
 					translate: [0, 0, 0]
-				}			],
+				}
+			],
 			volumes: [
 				{
 					outName: `pax_${designName}`,
