@@ -2,5 +2,4 @@
 
 export * from './myGroup1/myPartA';
 export * from './myGroup1/myPartB';
-
-//export * from './myGroup2/myPartC';
+export * from './myGroup1/myPartC';
