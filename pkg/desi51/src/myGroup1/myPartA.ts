@@ -92,36 +92,18 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		rGeome.vol = {
 			extrudes: [
 				{
-					outName: `subpax_${designName}_using_section`,
+					outName: `subpax_${designName}`,
 					face: `${designName}_faceSection`,
 					extrudeMethod: EExtrude.eLinearOrtho,
 					length: param.L1,
 					rotate: [0, 0, 0],
 					translate: [0, 0, 0]
-				},
-				{
-					outName: `subpax_${designName}_using_side`,
-					face: `${designName}_faceSide`,
-					extrudeMethod: EExtrude.eRotate,
-					rotate: [0, 0, 0],
-					translate: [0, 0, 0]
-				}
-			],
+				}			],
 			volumes: [
-				{
-					outName: `ipax_${designName}_intermediate_1`,
-					boolMethod: EBVolume.eUnion, // eIdentity, eIntersection, eUnion, eSubstraction
-					inList: [`subpax_${designName}_using_section`, `ipax_${designName}_using_side`]
-				},
-				{
-					outName: `ipax_${designName}_intermediate_2`,
-					boolMethod: EBVolume.eIntersection,
-					inList: [`subpax_${designName}_using_section`, `ipax_${designName}_using_side`]
-				},
 				{
 					outName: `pax_${designName}`,
 					boolMethod: EBVolume.eIdentity,
-					inList: [`subpax_${designName}_using_section`]
+					inList: [`subpax_${designName}`]
 				}
 			]
 		};
