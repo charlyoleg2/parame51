@@ -65,6 +65,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 	const rGeome = initGeom(pDef.partName);
 	const figBodyCut = figure();
 	const figBodySlant = figure();
+	const figBodyHollow = figure();
 	const figChimney = figure();
 	const figChimneyHollow = figure();
 	rGeome.logstr += `${rGeome.partName} simTime: ${t}\n`;
@@ -114,6 +115,16 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			.addSegStrokeA(R2, param.L4)
 			.closeSegStroke();
 		figBodySlant.addMain(ctrBodySlant);
+		// figBodyHollow
+		const ctrBodyHollow = contour(-R2, 0)
+			.addSegStrokeA(-R1, param.L1 + param.L2 - param.L3)
+			.addSegStrokeR(0, param.L3)
+			.addSegStrokeA(0, param.L1 + param.L2)
+			.addSegStrokeA(0, 0)
+			.closeSegStroke();
+		figBodyHollow.addMain(ctrBodyHollow);
+		figBodyHollow.addSecond(ctrBodyCut1);
+		figBodyHollow.addSecond(ctrBodyCut2);
 		// figChimney
 		figChimney.addMain(contourCircle(0, param.L1 - R4, R4));
 		figChimney.addSecond(contourCircle(0, param.L1 - R4, R3));
@@ -128,6 +139,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		rGeome.fig = {
 			faceBodyCut: figBodyCut,
 			faceBodySlant: figBodySlant,
+			faceBodyHollow: figBodyHollow,
 			faceChimney: figChimney,
 			faceChimneyHollow: figChimneyHollow
 		};
@@ -149,6 +161,13 @@ function pGeom(t: number, param: tParamVal): tGeom {
 					length: 2 * R2,
 					rotate: [Math.PI / 2, 0, -Math.PI / 2],
 					translate: [R2, 0, 0]
+				},
+				{
+					outName: `subpax_${designName}_bodyH`,
+					face: `${designName}_faceBodyHollow`,
+					extrudeMethod: EExtrude.eRotate, // always along the axis 0y
+					rotate: [0, 0, 0],
+					translate: [0, 0, 0]
 				},
 				{
 					outName: `subpax_${designName}_chimney`,
@@ -179,9 +198,14 @@ function pGeom(t: number, param: tParamVal): tGeom {
 					inList: [`ipax_${designName}_body1`, `subpax_${designName}_chimney`]
 				},
 				{
+					outName: `ipax_${designName}_hollow`,
+					boolMethod: EBVolume.eUnion,
+					inList: [`subpax_${designName}_bodyH`, `subpax_${designName}_chimneyH`]
+				},
+				{
 					outName: `ipax_${designName}_body3`,
 					boolMethod: EBVolume.eSubstraction,
-					inList: [`ipax_${designName}_body2`, `subpax_${designName}_chimneyH`]
+					inList: [`ipax_${designName}_body2`, `ipax_${designName}_hollow`]
 				},
 				{
 					outName: `pax_${designName}`,
