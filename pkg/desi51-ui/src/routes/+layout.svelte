@@ -8,8 +8,8 @@
 
 <h1>Welcome to desi51-ui</h1>
 <h6>
-	Showcasing the usage of the <a href="https://svelte.dev/">svelte</a> library
-	<a href="https://www.npmjs.com/">geomui</a>.
+	Showcasing the usage of the framework
+	<a href="https://github.com/charlyoleg2/parametrix">parametrix</a>.
 </h6>
 <nav>
 	<a href={`${base}/`}>index: list of designs</a>
