@@ -78,20 +78,20 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			throw `err075: abs(H1) ${param.H1} too large compare to D1 ${param.D1} and D3 ${param.D3}`;
 		}
 		// step-6 : any logs
-		const s1 = param.D1 + param.D2;
+		const s1 = param.D1 + param.D3;
 		const s2 = s1;
-		const s3 = param.H1 + R1 + R2;
+		const s3 = param.H1 + s1 / 2;
 		rGeome.logstr += `myPartD-size: ${ffix(s1)} x ${ffix(s2)} x ${ffix(s3)} mm\n`;
 		// step-7 : drawing of the figures
 		// figTube1
 		figTube1.addMain(contourCircle(0, param.H1, R1));
 		figTube1.addMain(contourCircle(0, param.H1, R2));
-		const ctrTube2 = contour(-R1 - R3, -R3)
+		const ctrTube2 = contour(-s1 / 2, -R3)
 			.addSegStrokeR(s2, 0)
 			.addSegStrokeR(0, param.D3)
 			.addSegStrokeR(-s2, 0)
 			.closeSegStroke();
-		const ctrTube2H = contour(-R1 - R3, -R4)
+		const ctrTube2H = contour(-s1 / 2, -R4)
 			.addSegStrokeR(s2, 0)
 			.addSegStrokeR(0, param.D4)
 			.addSegStrokeR(-s2, 0)
@@ -106,12 +106,12 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		// figTube2
 		figTube2.addMain(contourCircle(0, 0, R3));
 		figTube2.addMain(contourCircle(0, 0, R4));
-		const ctrTube1 = contour(-R1 - R3, param.H1 - R1)
+		const ctrTube1 = contour(-s1 / 2, param.H1 - R1)
 			.addSegStrokeR(s1, 0)
 			.addSegStrokeR(0, param.D1)
 			.addSegStrokeR(-s1, 0)
 			.closeSegStroke();
-		const ctrTube1H = contour(-R1 - R3, param.H1 - R2)
+		const ctrTube1H = contour(-s1 / 2, param.H1 - R2)
 			.addSegStrokeR(s1, 0)
 			.addSegStrokeR(0, param.D2)
 			.addSegStrokeR(-s1, 0)
@@ -126,12 +126,12 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		// figTop
 		figTop.addSecond(ctrTube2);
 		figTop.addSecond(ctrTube2H);
-		const ctrTube1b = contour(-R1, -R1 - R2)
+		const ctrTube1b = contour(-R1, -s1 / 2)
 			.addSegStrokeR(param.D1, 0)
 			.addSegStrokeR(0, s1)
 			.addSegStrokeR(-param.D1, 0)
 			.closeSegStroke();
-		const ctrTube1bH = contour(-R2, -R1 - R2)
+		const ctrTube1bH = contour(-R2, -s1 / 2)
 			.addSegStrokeR(param.D2, 0)
 			.addSegStrokeR(0, s1)
 			.addSegStrokeR(-param.D2, 0)
