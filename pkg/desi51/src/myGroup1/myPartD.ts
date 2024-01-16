@@ -80,18 +80,19 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		// step-6 : any logs
 		const s1 = param.D1 + param.D3;
 		const s2 = s1;
-		const s3 = param.H1 + s1 / 2;
+		const s12 = s1 / 2;
+		const s3 = param.H1 + s12;
 		rGeome.logstr += `myPartD-size: ${ffix(s1)} x ${ffix(s2)} x ${ffix(s3)} mm\n`;
 		// step-7 : drawing of the figures
 		// figTube1
 		figTube1.addMain(contourCircle(0, param.H1, R1));
 		figTube1.addMain(contourCircle(0, param.H1, R2));
-		const ctrTube2 = contour(-s1 / 2, -R3)
+		const ctrTube2 = contour(-s12, -R3)
 			.addSegStrokeR(s2, 0)
 			.addSegStrokeR(0, param.D3)
 			.addSegStrokeR(-s2, 0)
 			.closeSegStroke();
-		const ctrTube2H = contour(-s1 / 2, -R4)
+		const ctrTube2H = contour(-s12, -R4)
 			.addSegStrokeR(s2, 0)
 			.addSegStrokeR(0, param.D4)
 			.addSegStrokeR(-s2, 0)
@@ -106,12 +107,12 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		// figTube2
 		figTube2.addMain(contourCircle(0, 0, R3));
 		figTube2.addMain(contourCircle(0, 0, R4));
-		const ctrTube1 = contour(-s1 / 2, param.H1 - R1)
+		const ctrTube1 = contour(-s12, param.H1 - R1)
 			.addSegStrokeR(s1, 0)
 			.addSegStrokeR(0, param.D1)
 			.addSegStrokeR(-s1, 0)
 			.closeSegStroke();
-		const ctrTube1H = contour(-s1 / 2, param.H1 - R2)
+		const ctrTube1H = contour(-s12, param.H1 - R2)
 			.addSegStrokeR(s1, 0)
 			.addSegStrokeR(0, param.D2)
 			.addSegStrokeR(-s1, 0)
@@ -126,12 +127,12 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		// figTop
 		figTop.addSecond(ctrTube2);
 		figTop.addSecond(ctrTube2H);
-		const ctrTube1b = contour(-R1, -s1 / 2)
+		const ctrTube1b = contour(-R1, -s12)
 			.addSegStrokeR(param.D1, 0)
 			.addSegStrokeR(0, s1)
 			.addSegStrokeR(-param.D1, 0)
 			.closeSegStroke();
-		const ctrTube1bH = contour(-R2, -s1 / 2)
+		const ctrTube1bH = contour(-R2, -s12)
 			.addSegStrokeR(param.D2, 0)
 			.addSegStrokeR(0, s1)
 			.addSegStrokeR(-param.D2, 0)
@@ -155,16 +156,16 @@ function pGeom(t: number, param: tParamVal): tGeom {
 					face: `${designName}_faceTube1`,
 					extrudeMethod: EExtrude.eLinearOrtho,
 					length: s1,
-					rotate: [0, 0, 0],
-					translate: [0, 0, 0]
+					rotate: [-Math.PI / 2, 0, 0],
+					translate: [0, -s12, 2 * param.H1]
 				},
 				{
 					outName: `subpax_${designName}_tube1H`,
 					face: `${designName}_faceTube1H`,
 					extrudeMethod: EExtrude.eLinearOrtho,
 					length: s1,
-					rotate: [0, 0, 0],
-					translate: [0, 0, 0]
+					rotate: [-Math.PI / 2, 0, 0],
+					translate: [0, -s12, 2 * param.H1]
 				},
 				{
 					outName: `subpax_${designName}_tube2`,
@@ -172,7 +173,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 					extrudeMethod: EExtrude.eLinearOrtho,
 					length: s2,
 					rotate: [0, Math.PI / 2, 0],
-					translate: [0, 0, 0]
+					translate: [-s12, 0, 0]
 				},
 				{
 					outName: `subpax_${designName}_tube2H`,
@@ -180,7 +181,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 					extrudeMethod: EExtrude.eLinearOrtho,
 					length: s2,
 					rotate: [0, Math.PI / 2, 0],
-					translate: [0, 0, 0]
+					translate: [-s12, 0, 0]
 				}
 			],
 			volumes: [
