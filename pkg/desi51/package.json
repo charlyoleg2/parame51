@@ -42,7 +42,9 @@
 		"svgo2": "svgo --config ./svgo.config.cjs -f src/myGroup2/svg -o export_svg",
 		"svgCp": "shx cp export_svg/*.svg ../desi51-ui/static",
 		"svgo": "run-s svgo1 svgCp",
-		"clean": "shx rm -fr dist node_modules"
+		"browserBundleA": "esbuild src/myGroup1/myPartA.ts --bundle --format=esm --outfile=dist2/myPartA.js",
+		"browserBundleAll": "esbuild dist/index.js --bundle --format=esm --outfile=dist2/desi51.js",
+		"clean": "shx rm -fr dist dist2 node_modules"
 	},
 	"dependencies": {
 		"geometrix": "^0.5.13"
@@ -51,6 +53,7 @@
 		"@types/node": "^20.11.6",
 		"@typescript-eslint/eslint-plugin": "^6.19.1",
 		"@typescript-eslint/parser": "^6.19.1",
+		"esbuild": "^0.19.12",
 		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"npm-run-all": "^4.1.5",
