@@ -32,12 +32,12 @@ const pDef: tParamDef = {
 	partName: 'myPartE',
 	params: [
 		//pNumber(name, unit, init, min, max, step)
-		pNumber('N1', '', 8, 0, 20, 1),
+		pNumber('N1', 'N', 8, 0, 20, 1),
 		pNumber('H1', 'mm', 40, 10, 100, 1),
 		pNumber('H2', 'mm', 20, 10, 100, 1),
 		pNumber('A', 'mm', 10, 5, 50, 1),
 		pNumber('B', 'mm', 20, 5, 50, 1),
-		pNumber('N2', '', 8, 3, 24, 1),
+		pNumber('N2', 'N', 8, 3, 24, 1),
 		pNumber('D1', 'mm', 40, 10, 200, 1),
 		pNumber('D2', 'mm', 80, 10, 200, 1),
 		pNumber('S', 'mm', 20, 10, 50, 1)
