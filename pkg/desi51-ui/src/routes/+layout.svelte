@@ -12,7 +12,7 @@
 	<a href="https://github.com/charlyoleg2/parametrix">parametrix</a>.
 </h6>
 <nav>
-	<a href={`${base}/`}>index: list of designs</a>
+	<a href="{base}/">index: list of designs</a>
 </nav>
 <main>
 	<slot />
