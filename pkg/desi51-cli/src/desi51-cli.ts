@@ -4,14 +4,15 @@
 import type { tAllPageDef } from 'geometrix';
 import { geom_cli } from 'geomcli';
 import packag from '../package.json';
-import { myPartADef, myPartBDef, myPartCDef, myPartDDef, myPartEDef } from 'desi51';
+import { myPartADef, myPartBDef, myPartCDef, myPartDDef, myPartEDef, myPartFDef } from 'desi51';
 
 const designList: tAllPageDef = {
 	'myGroup1/myPartA': myPartADef,
 	'myGroup1/myPartB': myPartBDef,
 	'myGroup1/myPartC': myPartCDef,
 	'myGroup1/myPartD': myPartDDef,
-	'myGroup2/myPartE': myPartEDef
+	'myGroup2/myPartE': myPartEDef,
+	'myGroup2/myPartF': myPartFDef
 };
 
 //console.log('desi51-cli says hello');
