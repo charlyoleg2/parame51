@@ -16,7 +16,7 @@ import {
 	contour,
 	//contourCircle,
 	figure,
-	//degToRad,
+	degToRad,
 	//radToDeg,
 	ffix,
 	pNumber,
@@ -61,7 +61,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 	rGeome.logstr += `${rGeome.partName} simTime: ${t}\n`;
 	try {
 		// step-4 : some preparation calculation
-		const sizeH = 3 * param.C + (1 + 2 * param.SF1) * param.A; // horizontal size
+		const sizeH = 4 * param.C + (1 + 2 * param.SF1) * param.A; // horizontal size
 		const stepV = Math.max(param.A, param.B);
 		const sizeV = 5 * stepV;
 		// step-5 : checks on the parameter values
@@ -69,18 +69,40 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		rGeome.logstr += `myPartG size horizontal: ${ffix(sizeH)} mm, vertical: ${ffix(sizeV)} mm\n`;
 		// step-7 : drawing of the figures
 		// figTransforms
+		// contour of external outline
 		const ctrExt = contour(0, 0)
 			.addSegStrokeR(sizeH, 0)
 			.addSegStrokeR(0, sizeV)
 			.addSegStrokeR(-sizeH, 0)
 			.closeSegStroke();
 		figTransforms.addMain(ctrExt);
+		// contour of first Hollow
 		const ctrH1 = contour(param.C, stepV)
 			.addSegStrokeR(param.A, 0)
 			.addSegStrokeR(-param.A / 2, param.B)
 			.addCornerRounded(param.R)
 			.closeSegStroke();
 		figTransforms.addMain(ctrH1);
+		// scale and translate 1
+		const ctrH2a = ctrH1.scale(param.C, stepV, param.SF1, false); // scale
+		const ctrH2b = ctrH2a.translate(param.A + param.C, 0); // translate
+		figTransforms.addMain(ctrH2b);
+		// scale and translate 2
+		const translateX = (1 + param.SF1) * param.A + 2 * param.C;
+		figTransforms.addMain(
+			ctrH1.scale(param.C, stepV, param.SF1, true).translate(translateX, 0)
+		); // scale + translate in one line
+		// rotate and translate 1
+		const ctrH4 = ctrH1
+			.rotate(param.C + param.A / 2, stepV + param.B / 2, degToRad(param.Z1))
+			.translatePolar((2 * Math.PI) / 5, 2.5 * stepV);
+		figTransforms.addMain(ctrH4);
+		// rotate and translate 2
+		const ctrH5 = ctrH1
+			.rotate(param.C + param.A / 2, stepV + param.B / 2, degToRad(-param.Z1))
+			.translatePolar((2 * Math.PI) / 5, 2.5 * stepV)
+			.translate(2 * stepV, 0);
+		figTransforms.addMain(ctrH5);
 		// final figure list
 		rGeome.fig = {
 			faceTransforms: figTransforms
