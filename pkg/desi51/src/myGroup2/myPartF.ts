@@ -95,6 +95,51 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			.addCornerRounded(param.R1)
 			.closeSegStroke();
 		figCorners.addMain(ctrExt);
+		const ctrHollow1 = contour(EH, EV)
+			//.addCornerWidened(param.R4) // the corner could be defined at the begining or at the end
+			.addSegStrokeR(param.L2, 0)
+			.addCornerRounded(param.R3)
+			.addSegStrokeR(0, param.H2)
+			.addCornerWidened(param.R4)
+			.addSegStrokeR(-param.L2, 0)
+			.addCornerRounded(param.R3)
+			.closeSegStroke()
+			.addCornerWidened(param.R4); // the corner could be defined at the begining or at the end
+		figCorners.addMain(ctrHollow1);
+		const ctrHollow1b = contour(EH, EV)
+			.addSegStrokeR(param.L2 / 2, 0)
+			.addSegStrokeR(param.L2 / 2, param.H2 / 2)
+			.addSegStrokeR(0, param.H2 / 2)
+			.addSegStrokeR(-param.L2 / 2, 0)
+			.addSegStrokeR(-param.L2 / 2, -param.H2 / 2)
+			.closeSegStroke();
+		figCorners.addSecond(ctrHollow1b);
+		const ctrHollow2 = contour(param.L2 + 2 * EH, EV)
+			.addSegStrokeR(param.L3, 0)
+			.addSegStrokeR(-param.L3 / 2, param.H2);
+		switch (param.CS) {
+			case 0: // pointed
+				ctrHollow2.addCornerPointed();
+				break;
+			case 1: // rounded
+				ctrHollow2.addCornerRounded(param.R5);
+				break;
+			case 2: // widened
+				ctrHollow2.addCornerWidened(param.R5);
+				break;
+			case 3: // wideAcc
+				ctrHollow2.addCornerWideAcc(param.R5);
+				break;
+			default:
+				ctrHollow2.addCornerPointed();
+		}
+		ctrHollow2.closeSegStroke();
+		figCorners.addMain(ctrHollow2);
+		const ctrHollow2b = contour(param.L2 + 2 * EH, EV)
+			.addSegStrokeR(param.L3, 0)
+			.addSegStrokeR(-param.L3 / 2, param.H2)
+			.closeSegStroke();
+		figCorners.addSecond(ctrHollow2b);
 		// final figure list
 		rGeome.fig = {
 			faceCorners: figCorners
