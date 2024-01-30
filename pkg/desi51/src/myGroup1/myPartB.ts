@@ -31,7 +31,7 @@ const pDef: tParamDef = {
 	params: [
 		//pNumber(name, unit, init, min, max, step)
 		pNumber('L1', 'mm', 60, 10, 100, 10),
-		pDropdown('extShape', ['circle', 'triangle-up', 'triangle-down']), // the first '(circle') is default
+		pDropdown('extShape', ['circle', 'triangle-up', 'triangle-down']), // the first ('circle') is default
 		pNumber('D1', 'mm', 50, 10, 200, 5),
 		pCheckbox('hollow', true), // default true
 		pDropdown('intShape', ['straight', 'slanted']), // the first ('straight') is default
