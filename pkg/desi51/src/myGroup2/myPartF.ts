@@ -84,7 +84,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		// step-6 : any logs
 		rGeome.logstr += `myPartF intermediate distance horizontal: ${ffix(EH)} mm, vertical: ${ffix(EV)} mm\n`;
 		// step-7 : drawing of the figures
-		// figCartesian
+		// figCorners
 		const ctrExt = contour(0, 0)
 			.addCornerPointed() // no effect, same as nothing
 			.addSegStrokeA(param.L1, 0)
