@@ -29,7 +29,7 @@ import {
 
 // step-2 : definition of the parameters and more (part-name, svg associated to each parameter, simulation parameters)
 const pDef: tParamDef = {
-	partName: 'myPartF',
+	partName: 'myPartH',
 	params: [
 		//pNumber(name, unit, init, min, max, step)
 		pNumber('A1', 'mm', 60, 10, 200, 1),
