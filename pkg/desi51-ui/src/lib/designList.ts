@@ -8,7 +8,8 @@ import {
 	myPartDDef,
 	myPartEDef,
 	myPartFDef,
-	myPartGDef
+	myPartGDef,
+	myPartHDef
 } from 'desi51';
 
 const designList: tAllPageDef = {
@@ -18,7 +19,8 @@ const designList: tAllPageDef = {
 	'myGroup1/myPartD': myPartDDef,
 	'myGroup2/myPartE': myPartEDef,
 	'myGroup2/myPartF': myPartFDef,
-	'myGroup2/myPartG': myPartGDef
+	'myGroup2/myPartG': myPartGDef,
+	'myGroup2/myPartH': myPartHDef
 };
 
 export { designList };

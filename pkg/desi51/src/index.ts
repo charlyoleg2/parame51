@@ -7,3 +7,4 @@ export * from './myGroup1/myPartD';
 export * from './myGroup2/myPartE';
 export * from './myGroup2/myPartF';
 export * from './myGroup2/myPartG';
+export * from './myGroup2/myPartH';
