@@ -66,7 +66,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 	rGeome.logstr += `${rGeome.partName} simTime: ${t}\n`;
 	try {
 		// step-4 : some preparation calculation
-		const rotAngle = Math.PI / param.N1;
+		const rotAngle = (2 * Math.PI) / param.N1;
 		const sarr = [...Array(param.N2).keys()].map((n) => param.SF1 ** n);
 		const rsarr = sarr.reduce((total, nouv) => {
 			return total + nouv;
