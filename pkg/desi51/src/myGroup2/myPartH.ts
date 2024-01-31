@@ -86,15 +86,15 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			.addSegStrokeR(param.A1 / 2, -param.A3)
 			.addSegStrokeR(0, param.A2);
 		// figCircle
-		const ctrCircle = contour(line_size_h, 0).addPartial(partialCtr);
-		for (let i = 0; i < param.N1 - 1; i++) {
-			ctrCircle.addPartial(partialCtr.rotate(0, 0, rotAngle));
+		const ctrCircle = contour(line_size_h, 0);
+		for (let i = 0; i < param.N1; i++) {
+			ctrCircle.addPartial(partialCtr.rotate(0, 0, i * rotAngle));
 		}
 		figCircle.addMain(ctrCircle);
 		// figLine
 		const ctrLine = contour(0, 0).addSegStrokeR(0, -param.E).addPartial(partialCtr);
-		for (let i = 0; i < param.N2 - 1; i++) {
-			ctrLine.addSegStrokeR(param.B, 0).addPartial(partialCtr.scale(0, 0, param.SF1));
+		for (let i = 1; i < param.N2; i++) {
+			ctrLine.addSegStrokeR(param.B, 0).addPartial(partialCtr.scale(0, 0, sarr[i]));
 		}
 		ctrLine.addSegStrokeR(0, param.E).closeSegStroke();
 		figLine.addMain(ctrLine);
