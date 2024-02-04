@@ -3,7 +3,7 @@
 	"version": "0.5.5",
 	"private": true,
 	"scripts": {
-		"cp_pdgsvg": "shx cp -r ../../node_modules/designix/dist/pgdsvg static/",
+		"cp_pdgsvg": "shx cp -r ../../node_modules/desi51/dist/pgdsvg static/",
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
