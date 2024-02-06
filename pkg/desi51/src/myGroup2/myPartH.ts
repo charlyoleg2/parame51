@@ -1,5 +1,5 @@
 // myPartH.ts
-// tutorial-6 : illustrating contours made out of partial contours
+// tutorial-8 : illustrating contours made out of partial contours
 
 // step-1 : import from geometrix
 import type {
