@@ -42,7 +42,7 @@ const pDef: tParamDef = {
 		R1: 'myPartI_face.svg'
 	},
 	sim: {
-		tMax: 180,
+		tMax: 100,
 		tStep: 0.5,
 		tUpdate: 500 // every 0.5 second
 	}
@@ -52,34 +52,55 @@ const pDef: tParamDef = {
 function pGeom(t: number, param: tParamVal): tGeom {
 	const rGeome = initGeom(pDef.partName);
 	const fig1 = figure();
+	const fig2 = figure();
 	rGeome.logstr += `${rGeome.partName} simTime: ${t}\n`;
 	try {
 		// step-4 : some preparation calculation
-		const rectangle_width = 6 * param.A;
-		const rectangle_height = 4 * param.B;
+		const rectW = 6 * param.A;
+		const rectH = 4 * param.B;
+		const rAngle1 = ((Math.PI / 2) * t) / pDef.sim.tMax;
+		const rAngle2 = ((Math.PI / 2) * t) / pDef.sim.tMax + Math.PI / 4;
+		const rAngle3 = ((Math.PI / 2) * t) / pDef.sim.tMax - Math.PI / 4;
 		// step-5 : checks on the parameter values
 		// step-6 : any logs
-		rGeome.logstr += `myPartI size: ${ffix(rectangle_width)} x ${ffix(rectangle_height)} mm\n`;
+		rGeome.logstr += `myPartI size: ${ffix(rectW)} x ${ffix(rectH)} mm\n`;
 		// step-7 : drawing of the figures
 		//fig1
 		const ctrOutline = contour(0, 0)
-			.addSegStrokeR(rectangle_width, 0)
-			.addSegStrokeR(0, rectangle_height)
+			.addSegStrokeR(rectW, 0)
+			.addSegStrokeR(0, rectH)
 			.addCornerRounded(param.R1)
-			.addSegStrokeR(-rectangle_width, 0)
+			.addSegStrokeR(-rectW, 0)
 			.closeSegStroke();
 		fig1.addMain(ctrOutline);
+		const ctrTriangle = contour(0, 0)
+			.addSegStrokeR(param.A, 0)
+			.addSegStrokeR(-param.A / 2, 2 * param.B)
+			.closeSegStroke();
+		fig1.addMain(ctrTriangle.translate(param.A, param.B));
+		fig1.addMain(ctrTriangle.rotate(0, 0, Math.PI).translate(3.5 * param.A, 3 * param.B));
+		fig1.addMain(ctrTriangle.translate(4 * param.A, param.B));
+		//fig2
+		fig2.mergeFigure(fig1.rotate(rectW / 2, rectH / 2, rAngle1));
+		fig2.mergeFigure(
+			fig1.rotate(rectW / 2, rectH / 2, rAngle2).translate(-1.5 * rectW, 0),
+			true
+		);
+		fig2.mergeFigure(
+			fig1.rotate(rectW / 2, rectH / 2, rAngle3).translate(1.5 * rectW, 0),
+			true
+		);
 		// final figure list
 		rGeome.fig = {
-			face1: fig1
+			face2: fig2
 		};
 		// step-8 : recipes of the 3D construction
 		const designName = rGeome.partName;
 		rGeome.vol = {
 			extrudes: [
 				{
-					outName: `subpax_${designName}_1`,
-					face: `${designName}_face1`,
+					outName: `subpax_${designName}_2`,
+					face: `${designName}_face2`,
 					extrudeMethod: EExtrude.eLinearOrtho,
 					length: 1,
 					rotate: [0, 0, 0],
@@ -90,7 +111,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 				{
 					outName: `pax_${designName}`,
 					boolMethod: EBVolume.eIdentity,
-					inList: [`subpax_${designName}_1`]
+					inList: [`subpax_${designName}_2`]
 				}
 			]
 		};
