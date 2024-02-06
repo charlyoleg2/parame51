@@ -87,7 +87,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			true
 		);
 		fig2.mergeFigure(
-			fig1.rotate(rectW / 2, rectH / 2, rAngle3).translate(1.5 * rectW, 0),
+			fig1.rotate(rectW / 2, rectH / 2, rAngle3).translatePolar(0, 1.5 * rectW),
 			true
 		);
 		// final figure list
