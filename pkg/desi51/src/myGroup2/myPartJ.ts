@@ -205,7 +205,26 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		};
 		// step-9 : optional sub-design parameter export
 		// sub-design
-		rGeome.sub = {};
+		rGeome.sub = {
+			myPartF_1: {
+				partName: myPartFParam.getPartName(),
+				dparam: myPartFParam.getDesignParamList(),
+				orientation: [0, 0, 0],
+				position: [0, 0, 0]
+			},
+			myPartG_1: {
+				partName: myPartGParam.getPartName(),
+				dparam: myPartGParam.getDesignParamList(),
+				orientation: [0, 0, 0],
+				position: [0, 0, 0]
+			},
+			myPartI_1: {
+				partName: myPartIParam.getPartName(),
+				dparam: myPartIParam.getDesignParamList(),
+				orientation: [0, 0, 0],
+				position: [0, 0, 0]
+			}
+		};
 		// step-10 : final log message
 		// finalize
 		rGeome.logstr += 'myPartJ drawn successfully!\n';

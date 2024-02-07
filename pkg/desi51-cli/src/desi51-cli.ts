@@ -14,7 +14,8 @@ import {
 	myPartGDef,
 	myPartHDef,
 	myPartIDef,
-	myPartJDef
+	myPartJDef,
+	myPartKDef
 } from 'desi51';
 
 const designList: tAllPageDef = {
@@ -27,7 +28,8 @@ const designList: tAllPageDef = {
 	'myGroup2/myPartG': myPartGDef,
 	'myGroup2/myPartH': myPartHDef,
 	'myGroup2/myPartI': myPartIDef,
-	'myGroup2/myPartJ': myPartJDef
+	'myGroup2/myPartJ': myPartJDef,
+	'myGroup2/myPartK': myPartKDef
 };
 
 //console.log('desi51-cli says hello');

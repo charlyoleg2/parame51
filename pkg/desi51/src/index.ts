@@ -10,3 +10,4 @@ export * from './myGroup2/myPartG';
 export * from './myGroup2/myPartH';
 export * from './myGroup2/myPartI';
 export * from './myGroup2/myPartJ';
+export * from './myGroup2/myPartK';
