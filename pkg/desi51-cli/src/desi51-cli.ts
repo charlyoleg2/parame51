@@ -19,17 +19,17 @@ import {
 } from 'desi51';
 
 const designList: tAllPageDef = {
-	'myGroup1/myPartA': myPartADef,
-	'myGroup1/myPartB': myPartBDef,
-	'myGroup1/myPartC': myPartCDef,
-	'myGroup1/myPartD': myPartDDef,
-	'myGroup2/myPartE': myPartEDef,
-	'myGroup2/myPartF': myPartFDef,
-	'myGroup2/myPartG': myPartGDef,
-	'myGroup2/myPartH': myPartHDef,
-	'myGroup2/myPartI': myPartIDef,
-	'myGroup2/myPartJ': myPartJDef,
-	'myGroup2/myPartK': myPartKDef
+	'desi51/myGroup1/myPartA': myPartADef,
+	'desi51/myGroup1/myPartB': myPartBDef,
+	'desi51/myGroup1/myPartC': myPartCDef,
+	'desi51/myGroup1/myPartD': myPartDDef,
+	'desi51/myGroup2/myPartE': myPartEDef,
+	'desi51/myGroup2/myPartF': myPartFDef,
+	'desi51/myGroup2/myPartG': myPartGDef,
+	'desi51/myGroup2/myPartH': myPartHDef,
+	'desi51/myGroup2/myPartI': myPartIDef,
+	'desi51/myGroup2/myPartJ': myPartJDef,
+	'desi51/myGroup2/myPartK': myPartKDef
 };
 
 //console.log('desi51-cli says hello');
