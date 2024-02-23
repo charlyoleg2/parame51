@@ -89,7 +89,9 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		// step-6 : any logs
 		const s1 = param.D1 + param.D3 + 2 * (param.L1 + param.L2);
 		const s2 = s1;
-		const s3 = param.H1 + (param.D1 + param.D3) / 2;
+		const Rmin = Math.min(param.D1, param.D3) / 2;
+		const Rmax = Math.max(param.D1, param.D3) / 2;
+		const s3 = Rmax + Math.max(Rmax, Math.abs(param.H1) + Rmin);
 		rGeome.logstr += `myPartK-size: ${ffix(s1)} x ${ffix(s2)} x ${ffix(s3)} mm\n`;
 		// step-7a : sub-design
 		// myPartD
