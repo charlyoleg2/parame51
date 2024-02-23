@@ -53,8 +53,8 @@ const pDef: tParamDef = {
 };
 
 // step-3 : definition of the function that creates from the parameter-values the figures and construct the 3D
-function pGeom(t: number, param: tParamVal): tGeom {
-	const rGeome = initGeom(pDef.partName);
+function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
+	const rGeome = initGeom(pDef.partName + suffix);
 	const figTube1 = figure();
 	const figTube1Hollow = figure();
 	const figTube2 = figure();
