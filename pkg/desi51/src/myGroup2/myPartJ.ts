@@ -130,7 +130,11 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		myPartFParam.setVal('R4', param.F1R4);
 		myPartFParam.setVal('CS', param.F1CS);
 		myPartFParam.setVal('R5', param.F1R5);
-		const myPartFGeom = myPartFDef.pGeom(0, myPartFParam.getParamVal(), myPartFParam.getSuffix());
+		const myPartFGeom = myPartFDef.pGeom(
+			0,
+			myPartFParam.getParamVal(),
+			myPartFParam.getSuffix()
+		);
 		checkGeom(myPartFGeom);
 		rGeome.logstr += prefixLog(myPartFGeom.logstr, myPartFParam.getPartNameSuffix());
 		// myPartG
@@ -141,7 +145,11 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		myPartGParam.setVal('C', param.F2C);
 		myPartGParam.setVal('SF1', param.F2SF1);
 		myPartGParam.setVal('Z1', param.F2Z1);
-		const myPartGGeom = myPartGDef.pGeom(0, myPartGParam.getParamVal(), myPartGParam.getSuffix());
+		const myPartGGeom = myPartGDef.pGeom(
+			0,
+			myPartGParam.getParamVal(),
+			myPartGParam.getSuffix()
+		);
 		checkGeom(myPartGGeom);
 		rGeome.logstr += prefixLog(myPartGGeom.logstr, myPartGParam.getPartNameSuffix());
 		// myPartI
@@ -149,7 +157,11 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		myPartIParam.setVal('A', F3A);
 		myPartIParam.setVal('B', param.F3B);
 		myPartIParam.setVal('R1', param.F3R1);
-		const myPartIGeom = myPartIDef.pGeom(t, myPartIParam.getParamVal(), myPartIParam.getSuffix());
+		const myPartIGeom = myPartIDef.pGeom(
+			t,
+			myPartIParam.getParamVal(),
+			myPartIParam.getSuffix()
+		);
 		checkGeom(myPartIGeom);
 		rGeome.logstr += prefixLog(myPartIGeom.logstr, myPartIParam.getPartNameSuffix());
 		// step-7b : drawing of the figures
