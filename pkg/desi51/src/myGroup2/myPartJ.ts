@@ -87,8 +87,8 @@ const pDef: tParamDef = {
 };
 
 // step-3 : definition of the function that creates from the parameter-values the figures and construct the 3D
-function pGeom(t: number, param: tParamVal): tGeom {
-	const rGeome = initGeom(pDef.partName);
+function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
+	const rGeome = initGeom(pDef.partName + suffix);
 	const fig1 = figure();
 	const fig2 = figure();
 	const fig3 = figure();
@@ -130,9 +130,9 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		myPartFParam.setVal('R4', param.F1R4);
 		myPartFParam.setVal('CS', param.F1CS);
 		myPartFParam.setVal('R5', param.F1R5);
-		const myPartFGeom = myPartFDef.pGeom(0, myPartFParam.getParamVal());
+		const myPartFGeom = myPartFDef.pGeom(0, myPartFParam.getParamVal(), myPartFParam.getSuffix());
 		checkGeom(myPartFGeom);
-		rGeome.logstr += prefixLog(myPartFGeom.logstr, myPartFParam.partName);
+		rGeome.logstr += prefixLog(myPartFGeom.logstr, myPartFParam.getPartNameSuffix());
 		// myPartG
 		const myPartGParam = designParam(myPartGDef.pDef);
 		myPartGParam.setVal('A', param.F2A);
@@ -141,17 +141,17 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		myPartGParam.setVal('C', param.F2C);
 		myPartGParam.setVal('SF1', param.F2SF1);
 		myPartGParam.setVal('Z1', param.F2Z1);
-		const myPartGGeom = myPartGDef.pGeom(0, myPartGParam.getParamVal());
+		const myPartGGeom = myPartGDef.pGeom(0, myPartGParam.getParamVal(), myPartGParam.getSuffix());
 		checkGeom(myPartGGeom);
-		rGeome.logstr += prefixLog(myPartGGeom.logstr, myPartGParam.partName);
+		rGeome.logstr += prefixLog(myPartGGeom.logstr, myPartGParam.getPartNameSuffix());
 		// myPartI
 		const myPartIParam = designParam(myPartIDef.pDef);
 		myPartIParam.setVal('A', F3A);
 		myPartIParam.setVal('B', param.F3B);
 		myPartIParam.setVal('R1', param.F3R1);
-		const myPartIGeom = myPartIDef.pGeom(t, myPartIParam.getParamVal());
+		const myPartIGeom = myPartIDef.pGeom(t, myPartIParam.getParamVal(), myPartIParam.getSuffix());
 		checkGeom(myPartIGeom);
-		rGeome.logstr += prefixLog(myPartIGeom.logstr, myPartIParam.partName);
+		rGeome.logstr += prefixLog(myPartIGeom.logstr, myPartIParam.getPartNameSuffix());
 		// step-7b : drawing of the figures
 		fig1.mergeFigure(myPartFGeom.fig.faceCorners);
 		fig2.mergeFigure(myPartGGeom.fig.faceTransforms);
