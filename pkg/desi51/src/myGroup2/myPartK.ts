@@ -106,7 +106,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		checkGeom(myPartDGeom);
 		rGeome.logstr += prefixLog(myPartDGeom.logstr, myPartDParam.partName);
 		// myPartA-1
-		const myPartAParam_1 = designParam(myPartADef.pDef);
+		const myPartAParam_1 = designParam(myPartADef.pDef, 'ref1');
 		myPartAParam_1.setVal('D1', param.D1);
 		myPartAParam_1.setVal('E1', (param.D1 - param.D2) / 2);
 		myPartAParam_1.setVal('L1', param.L1);
@@ -114,7 +114,7 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		checkGeom(myPartAGeom_1);
 		rGeome.logstr += prefixLog(myPartAGeom_1.logstr, myPartAParam_1.partName);
 		// myPartA-2
-		const myPartAParam_2 = designParam(myPartADef.pDef);
+		const myPartAParam_2 = designParam(myPartADef.pDef, 'ref2');
 		myPartAParam_2.setVal('D1', param.D3);
 		myPartAParam_2.setVal('E1', (param.D3 - param.D4) / 2);
 		myPartAParam_2.setVal('L1', param.L1);
