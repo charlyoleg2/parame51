@@ -2,12 +2,12 @@
 	"name": "desi51",
 	"version": "0.5.13",
 	"description": "Example designs made with parametrix",
-	"private": true,
+	"private": false,
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/charlyoleg2/parame51.git"
 	},
-	"homepage": "https://github.com/charlyoleg2/parame51/tree/main/pkg/desi51#readme",
+	"homepage": "https://charlyoleg2.github.io/parame51/",
 	"keywords": [
 		"cad",
 		"programmatic",
