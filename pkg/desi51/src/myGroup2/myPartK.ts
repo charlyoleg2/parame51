@@ -147,6 +147,34 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		rGeome.vol = {
 			inherits: [
 				{
+					outName: `inpax_${designName}_A11`,
+					subdesign: 'pax_myPartA',
+					subgeom: myPartAGeom_1,
+					rotate: [-Math.PI / 2, 0, 0],
+					translate: [0, -l132 - param.L2 - param.L1, 2 * param.H1]
+				},
+				{
+					outName: `inpax_${designName}_A12`,
+					subdesign: 'pax_myPartA',
+					subgeom: myPartAGeom_1,
+					rotate: [-Math.PI / 2, 0, 0],
+					translate: [0, l132 + param.L2, 2 * param.H1]
+				},
+				{
+					outName: `inpax_${designName}_A21`,
+					subdesign: 'pax_myPartA',
+					subgeom: myPartAGeom_2,
+					rotate: [0, Math.PI / 2, 0],
+					translate: [-l132 - param.L2 - param.L1, 0, 0]
+				},
+				{
+					outName: `inpax_${designName}_A22`,
+					subdesign: 'pax_myPartA',
+					subgeom: myPartAGeom_2,
+					rotate: [0, Math.PI / 2, 0],
+					translate: [l132 + param.L2, 0, 0]
+				},
+				{
 					outName: `inpax_${designName}_cross`,
 					subdesign: 'pax_myPartD',
 					subgeom: myPartDGeom,
@@ -158,13 +186,31 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			volumes: [
 				{
 					outName: `pax_${designName}`,
-					boolMethod: EBVolume.eIdentity,
-					inList: [`inpax_${designName}_cross`]
+					boolMethod: EBVolume.eUnion,
+					inList: [
+						`inpax_${designName}_A11`,
+						`inpax_${designName}_A12`,
+						`inpax_${designName}_A21`,
+						`inpax_${designName}_A22`,
+						`inpax_${designName}_cross`
+					]
 				}
 			]
 		};
 		// step-9 : optional sub-design parameter export
 		rGeome.sub = {
+			myPartA_1: {
+				partName: myPartAParam_1.getPartName(),
+				dparam: myPartAParam_1.getDesignParamList(),
+				orientation: [0, 0, 0],
+				position: [0, 0, 0]
+			},
+			myPartA_2: {
+				partName: myPartAParam_2.getPartName(),
+				dparam: myPartAParam_2.getDesignParamList(),
+				orientation: [0, 0, 0],
+				position: [0, 0, 0]
+			},
 			myPartD_1: {
 				partName: myPartDParam.getPartName(),
 				dparam: myPartDParam.getDesignParamList(),
