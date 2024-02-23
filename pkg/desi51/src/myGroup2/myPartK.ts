@@ -160,28 +160,28 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 			inherits: [
 				{
 					outName: `inpax_${designName}_A11`,
-					subdesign: 'pax_myPartA',
+					subdesign: 'pax_myPartAref1',
 					subgeom: myPartAGeom_1,
 					rotate: [-Math.PI / 2, 0, 0],
-					translate: [0, -l132 - param.L2 - param.L1, 2 * param.H1]
+					translate: [0, -l132 - param.L2 - param.L1, param.H1]
 				},
 				{
 					outName: `inpax_${designName}_A12`,
-					subdesign: 'pax_myPartA',
+					subdesign: 'pax_myPartAref1',
 					subgeom: myPartAGeom_1,
 					rotate: [-Math.PI / 2, 0, 0],
-					translate: [0, l132 + param.L2, 2 * param.H1]
+					translate: [0, l132 + param.L2, param.H1]
 				},
 				{
 					outName: `inpax_${designName}_A21`,
-					subdesign: 'pax_myPartA',
+					subdesign: 'pax_myPartAref2',
 					subgeom: myPartAGeom_2,
 					rotate: [0, Math.PI / 2, 0],
 					translate: [-l132 - param.L2 - param.L1, 0, 0]
 				},
 				{
 					outName: `inpax_${designName}_A22`,
-					subdesign: 'pax_myPartA',
+					subdesign: 'pax_myPartAref2',
 					subgeom: myPartAGeom_2,
 					rotate: [0, Math.PI / 2, 0],
 					translate: [l132 + param.L2, 0, 0]
