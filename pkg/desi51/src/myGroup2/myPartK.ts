@@ -87,7 +87,8 @@ function pGeom(t: number, param: tParamVal): tGeom {
 			throw `err075: abs(H1) ${param.H1} too large compare to D1 ${param.D1} and D3 ${param.D3}`;
 		}
 		// step-6 : any logs
-		const s1 = param.D1 + param.D3 + 2 * (param.L1 + param.L2);
+		const l132 = (param.D1 + param.D3) / 2;
+		const s1 = 2 * l132 + 2 * (param.L1 + param.L2);
 		const s2 = s1;
 		const Rmin = Math.min(param.D1, param.D3) / 2;
 		const Rmax = Math.max(param.D1, param.D3) / 2;
@@ -121,9 +122,20 @@ function pGeom(t: number, param: tParamVal): tGeom {
 		checkGeom(myPartAGeom_2);
 		rGeome.logstr += prefixLog(myPartAGeom_2.logstr, myPartAParam_2.partName);
 		// step-7b : drawing of the figures
+		const partA1v = myPartAGeom_1.fig.faceSide;
+		const partA1 = myPartAGeom_1.fig.faceSide.rotate(0, 0, Math.PI / 2);
+		const partA2 = myPartAGeom_2.fig.faceSide.rotate(0, 0, Math.PI / 2);
 		figSide1.mergeFigure(myPartDGeom.fig.faceTube1);
+		figSide1.mergeFigure(partA2.translate(-l132 - param.L2, 0));
+		figSide1.mergeFigure(partA2.translate(l132 + param.L2 + param.L1, 0));
 		figSide2.mergeFigure(myPartDGeom.fig.faceTube2);
+		figSide2.mergeFigure(partA1.translate(-l132 - param.L2, param.H1));
+		figSide2.mergeFigure(partA1.translate(l132 + param.L2 + param.L1, param.H1));
 		figTop.mergeFigure(myPartDGeom.fig.faceTop);
+		figTop.mergeFigure(partA2.translate(-l132 - param.L2, 0));
+		figTop.mergeFigure(partA2.translate(l132 + param.L2 + param.L1, 0));
+		figTop.mergeFigure(partA1v.translate(0, l132 + param.L2));
+		figTop.mergeFigure(partA1v.translate(0, -l132 - param.L2 - param.L1));
 		// final figure list
 		rGeome.fig = {
 			faceSide1: figSide1,
