@@ -102,7 +102,11 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		myPartDParam.setVal('D3', param.D3);
 		myPartDParam.setVal('D4', param.D4);
 		myPartDParam.setVal('H1', param.H1);
-		const myPartDGeom = myPartDDef.pGeom(0, myPartDParam.getParamVal(), myPartDParam.getSuffix());
+		const myPartDGeom = myPartDDef.pGeom(
+			0,
+			myPartDParam.getParamVal(),
+			myPartDParam.getSuffix()
+		);
 		checkGeom(myPartDGeom);
 		rGeome.logstr += prefixLog(myPartDGeom.logstr, myPartDParam.getPartNameSuffix());
 		// myPartA-1
@@ -110,7 +114,11 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		myPartAParam_1.setVal('D1', param.D1);
 		myPartAParam_1.setVal('E1', (param.D1 - param.D2) / 2);
 		myPartAParam_1.setVal('L1', param.L1);
-		const myPartAGeom_1 = myPartADef.pGeom(0, myPartAParam_1.getParamVal(), myPartAParam_1.getSuffix());
+		const myPartAGeom_1 = myPartADef.pGeom(
+			0,
+			myPartAParam_1.getParamVal(),
+			myPartAParam_1.getSuffix()
+		);
 		checkGeom(myPartAGeom_1);
 		rGeome.logstr += prefixLog(myPartAGeom_1.logstr, myPartAParam_1.getPartNameSuffix());
 		// myPartA-2
@@ -118,7 +126,11 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		myPartAParam_2.setVal('D1', param.D3);
 		myPartAParam_2.setVal('E1', (param.D3 - param.D4) / 2);
 		myPartAParam_2.setVal('L1', param.L1);
-		const myPartAGeom_2 = myPartADef.pGeom(0, myPartAParam_2.getParamVal(), myPartAParam_2.getSuffix());
+		const myPartAGeom_2 = myPartADef.pGeom(
+			0,
+			myPartAParam_2.getParamVal(),
+			myPartAParam_2.getSuffix()
+		);
 		checkGeom(myPartAGeom_2);
 		rGeome.logstr += prefixLog(myPartAGeom_2.logstr, myPartAParam_2.getPartNameSuffix());
 		// step-7b : drawing of the figures
