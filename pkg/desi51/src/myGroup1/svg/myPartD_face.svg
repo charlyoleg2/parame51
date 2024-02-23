@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="1.4967094"
-     inkscape:cx="261.9079"
-     inkscape:cy="658.77854"
+     inkscape:zoom="1.0583334"
+     inkscape:cx="306.14171"
+     inkscape:cy="514.01572"
      inkscape:window-width="1370"
      inkscape:window-height="836"
      inkscape:window-x="0"
@@ -221,7 +221,10 @@
        width="95.852524"
        height="73.172852"
        x="21.92481"
-       y="20.671873" />
+       y="20.671873"
+       inkscape:export-filename="myPartD_face.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <circle
        style="fill:none;stroke:#666666;stroke-width:0.264583;stroke-linejoin:bevel"
        id="path1"
@@ -312,7 +315,7 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-35.341796,6.8554688)"
        id="text3"
-       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect3)"><tspan
+       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect3);display:inline"><tspan
          x="338.51367"
          y="84.078155"
          id="tspan1">D1</tspan></text>
@@ -320,7 +323,7 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-34.469726,4.4160156)"
        id="text4"
-       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect4)"><tspan
+       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect4);display:inline"><tspan
          x="334.63086"
          y="130.05472"
          id="tspan2">D2</tspan></text>
@@ -328,7 +331,7 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-0.73925781,26.885254)"
        id="text5"
-       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5)"><tspan
+       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5);display:inline"><tspan
          x="338.30078"
          y="169.22073"
          id="tspan3">H1</tspan></text>
@@ -336,18 +339,18 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,6.1972657,52.603515)"
        id="text6"
-       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect6)"><tspan
+       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect6);display:inline"><tspan
          x="340.375"
          y="101.24222"
-         id="tspan4">D3</tspan></text>
+         id="tspan4">D4</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,12.826661,38.001464)"
        id="text7"
-       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7)"><tspan
+       style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7);display:inline"><tspan
          x="355.38281"
          y="156.09573"
-         id="tspan5">D4</tspan></text>
+         id="tspan5">D3</tspan></text>
     <path
        style="fill:none;stroke:#e6e6e6;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 82.171748,68.747102 V 44.298422"
@@ -367,7 +370,7 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect18-9-0);display:inline"><tspan
          x="129.15039"
          y="902.94925"
-         id="tspan6">D4 / 2</tspan></text>
+         id="tspan6">D3 / 2</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#RoundedArrow-66-8-7);marker-end:url(#RoundedArrow-66-8-7)"
        d="m 30.774128,45.213375 6.22193,-0.1323"
@@ -379,6 +382,6 @@
        style="font-size:14.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect18-9-3);display:inline"><tspan
          x="129.15039"
          y="902.94925"
-         id="tspan7">D4 / 2</tspan></text>
+         id="tspan7">D3 / 2</tspan></text>
   </g>
 </svg>
