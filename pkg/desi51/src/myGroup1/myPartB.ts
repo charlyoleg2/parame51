@@ -28,6 +28,7 @@ import {
 } from 'geometrix';
 
 const pDef: tParamDef = {
+	// partName is used in URL. Choose a name without slash, backslash and space.
 	partName: 'myPartB',
 	params: [
 		//pNumber(name, unit, init, min, max, step)
