@@ -22,7 +22,7 @@ Getting started
 git clone https://github.com/charlyoleg2/parame51
 cd parame51
 npm install
-npm ci
+npm run ci
 npm run preview
 ```
 
