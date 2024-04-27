@@ -8,6 +8,14 @@
 		"url": "git+https://github.com/charlyoleg2/parame51.git"
 	},
 	"homepage": "https://charlyoleg2.github.io/parame51/",
+	"author": "charlyoleg2",
+	"license": "ISC",
+	"keywords": [
+		"parametrix",
+		"3D",
+		"CAD"
+	],
+	"type": "module",
 	"scripts": {
 		"cp_pgdsvg": "shx cp -r ../../node_modules/desi51/dist/pgdsvg static/",
 		"dev": "vite dev",
@@ -49,6 +57,5 @@
 		"typescript": "^5.4.5",
 		"vite": "^5.2.9",
 		"vitest": "^1.5.0"
-	},
-	"type": "module"
+	}
 }
