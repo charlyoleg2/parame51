@@ -1,7 +1,7 @@
 {
 	"name": "desi51-ui",
 	"description": "The sveltekit app for desi51",
-	"version": "0.5.5",
+	"version": "0.5.6",
 	"private": true,
 	"repository": {
 		"type": "git",
