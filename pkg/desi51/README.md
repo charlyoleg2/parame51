@@ -5,9 +5,16 @@ Desi51
 Presentation
 ------------
 
-*Desi51* is a *javascript* package containing a couple of programmatic CAD designs based on *Geometrix*. Those designs are used to illustrate the usage of *Geometrix* and *Paramui* and to help at their development.
+*Desi51* is design-library using [geometrix](https://www.npmjs.com/package/geometrix).
+*Desi51* contains designs used in the [tutorial](https://charlyoleg2.github.io/parametrix/docs/geom_tutorial) of *geometrix*.
 
-You can use *desi51* as a boilerplate for your own designs. Rename and modify the example designs.
+
+Links
+-----
+
+- [desi51-ui](https://charlyoleg2.github.io/parame51/) : public instance of the UI
+- [sources](https://github.com/charlyoleg2/parame51) : git-repository
+- [desi51-pkg](https://www.npmjs.com/package/desi51) : desi51 as npm-package
 
 
 Getting started

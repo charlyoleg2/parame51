@@ -5,11 +5,35 @@ desi51-cli
 Presentation
 ------------
 
-*desi51-cli* is a *command line interface* application for exporting the designs of *desi51*.
+*desi51-cli* is a *command line interface* application for presenting the designs of *desi51*.
 
 
-Getting started
----------------
+Requirements
+------------
+
+- [node](https://nodejs.org) > 20.10.0
+- [npm](https://docs.npmjs.com/cli) > 10.1.0
+
+
+Installation
+------------
+
+```bash
+npm i -D desiXY-cli
+```
+
+
+Usage
+-----
+
+```bash
+npx desiXY-cli
+npx desiXY-cli --help
+```
+
+
+Development
+-----------
 
 ```bash
 git clone https://github.com/charlyoleg2/parame51
@@ -18,7 +42,4 @@ npm install
 npm ci
 npm -w desi51-cli run run
 ```
-
-
-
 
