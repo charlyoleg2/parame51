@@ -70,7 +70,6 @@ Publish a new release
 
 ```bash
 npm run versions
-vim scr/patchPaxApps.patch
 git diff
 git commit -am 'increment sub versions'
 npm version patch
