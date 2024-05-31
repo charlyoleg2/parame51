@@ -1,6 +1,6 @@
 {
 	"name": "desi51-cli",
-	"version": "0.5.9",
+	"version": "0.5.10",
 	"description": "The application cli as frontend of desi51",
 	"private": true,
 	"repository": {
