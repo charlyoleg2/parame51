@@ -4,6 +4,7 @@
 // step-1 : import from geometrix
 import type {
 	//tContour,
+	tOuterInner,
 	tParamDef,
 	tParamVal,
 	tGeom,
@@ -86,6 +87,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		rGeome.logstr += `myPartF intermediate distance horizontal: ${ffix(EH)} mm, vertical: ${ffix(EV)} mm\n`;
 		// step-7 : drawing of the figures
 		// figCorners
+		const fCorners: tOuterInner = [];
 		const ctrExt = contour(0, 0)
 			.addCornerPointed() // no effect, same as nothing
 			.addSegStrokeA(param.L1, 0)
@@ -95,7 +97,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 			.addSegStrokeA(0, param.H1)
 			.addCornerRounded(param.R1)
 			.closeSegStroke();
-		figCorners.addMain(ctrExt);
+		fCorners.push(ctrExt);
 		const ctrHollow1 = contour(EH, EV)
 			//.addCornerWidened(param.R4) // the corner could be defined at the begining or at the end
 			.addSegStrokeR(param.L2, 0)
@@ -106,7 +108,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 			.addCornerRounded(param.R3)
 			.closeSegStroke()
 			.addCornerWidened(param.R4); // the corner could be defined at the begining or at the end
-		figCorners.addMain(ctrHollow1);
+		fCorners.push(ctrHollow1);
 		const ctrHollow1b = contour(EH, EV)
 			.addSegStrokeR(param.L2 / 2, 0)
 			.addSegStrokeR(param.L2 / 2, param.H2 / 2)
@@ -135,12 +137,13 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 				ctrHollow2.addCornerPointed();
 		}
 		ctrHollow2.closeSegStroke();
-		figCorners.addMain(ctrHollow2);
+		fCorners.push(ctrHollow2);
 		const ctrHollow2b = contour(param.L2 + 2 * EH, EV)
 			.addSegStrokeR(param.L3, 0)
 			.addSegStrokeR(-param.L3 / 2, param.H2)
 			.closeSegStroke();
 		figCorners.addSecond(ctrHollow2b);
+		figCorners.addMainOI(fCorners);
 		// final figure list
 		rGeome.fig = {
 			faceCorners: figCorners

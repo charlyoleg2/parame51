@@ -4,6 +4,7 @@
 // step-1 : import from geometrix
 import type {
 	//tContour,
+	//tOuterInner,
 	tParamDef,
 	tParamVal,
 	tGeom,
@@ -107,7 +108,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 			.addSegStrokeA(R1, param.L1 + param.L2)
 			.addSegStrokeR(0, -param.L3)
 			.closeSegStroke();
-		figBodyCut.addMain(ctrBodyCut1);
+		figBodyCut.addMainO(ctrBodyCut1);
 		figBodyCut.addSecond(ctrBodyCut2);
 		// figBodySlant
 		const ctrBodySlant = contour(-R2, 0)
@@ -115,7 +116,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 			.addSegStrokeA(R2, param.L1 + param.L2)
 			.addSegStrokeA(R2, param.L4)
 			.closeSegStroke();
-		figBodySlant.addMain(ctrBodySlant);
+		figBodySlant.addMainO(ctrBodySlant);
 		// figBodyHollow
 		const ctrBodyHollow = contour(-R2, 0)
 			.addSegStrokeA(-R1, param.L1 + param.L2 - param.L3)
@@ -123,16 +124,16 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 			.addSegStrokeA(0, param.L1 + param.L2)
 			.addSegStrokeA(0, 0)
 			.closeSegStroke();
-		figBodyHollow.addMain(ctrBodyHollow);
+		figBodyHollow.addMainO(ctrBodyHollow);
 		figBodyHollow.addSecond(ctrBodyCut1);
 		figBodyHollow.addSecond(ctrBodyCut2);
 		// figChimney
-		figChimney.addMain(contourCircle(0, param.L1 - R4, R4));
+		figChimney.addMainO(contourCircle(0, param.L1 - R4, R4));
 		figChimney.addSecond(contourCircle(0, param.L1 - R4, R3));
 		figChimney.addSecond(ctrBodyCut1);
 		figChimney.addSecond(ctrBodyCut2);
 		// figChimneyHollow
-		figChimneyHollow.addMain(contourCircle(0, param.L1 - R4, R3));
+		figChimneyHollow.addMainO(contourCircle(0, param.L1 - R4, R3));
 		figChimneyHollow.addSecond(contourCircle(0, param.L1 - R4, R4));
 		figChimneyHollow.addSecond(ctrBodyCut1);
 		figChimneyHollow.addSecond(ctrBodyCut2);

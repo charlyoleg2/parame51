@@ -4,6 +4,7 @@
 // step-1 : import from geometrix
 import type {
 	//tContour,
+	//tOuterInner,
 	tParamDef,
 	tParamVal,
 	tGeom,
@@ -86,8 +87,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		rGeome.logstr += `myPartD-size: ${ffix(s1)} x ${ffix(s2)} x ${ffix(s3)} mm\n`;
 		// step-7 : drawing of the figures
 		// figTube1
-		figTube1.addMain(contourCircle(0, param.H1, R1));
-		figTube1.addMain(contourCircle(0, param.H1, R2));
+		figTube1.addMainOI([contourCircle(0, param.H1, R1), contourCircle(0, param.H1, R2)]);
 		const ctrTube2 = contour(-s12, -R3)
 			.addSegStrokeR(s2, 0)
 			.addSegStrokeR(0, param.D3)
@@ -102,12 +102,11 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		figTube1.addSecond(ctrTube2H);
 		// figTube1Hollow
 		figTube1Hollow.addSecond(contourCircle(0, param.H1, R1));
-		figTube1Hollow.addMain(contourCircle(0, param.H1, R2));
+		figTube1Hollow.addMainO(contourCircle(0, param.H1, R2));
 		figTube1Hollow.addSecond(ctrTube2);
 		figTube1Hollow.addSecond(ctrTube2H);
 		// figTube2
-		figTube2.addMain(contourCircle(0, 0, R3));
-		figTube2.addMain(contourCircle(0, 0, R4));
+		figTube2.addMainOI([contourCircle(0, 0, R3), contourCircle(0, 0, R4)]);
 		const ctrTube1 = contour(-s12, param.H1 - R1)
 			.addSegStrokeR(s1, 0)
 			.addSegStrokeR(0, param.D1)
@@ -122,7 +121,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		figTube2.addSecond(ctrTube1H);
 		// figTube2Hollow
 		figTube2Hollow.addSecond(contourCircle(0, 0, R3));
-		figTube2Hollow.addMain(contourCircle(0, 0, R4));
+		figTube2Hollow.addMainO(contourCircle(0, 0, R4));
 		figTube2Hollow.addSecond(ctrTube1);
 		figTube2Hollow.addSecond(ctrTube1H);
 		// figTop

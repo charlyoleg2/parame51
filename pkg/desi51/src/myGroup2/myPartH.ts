@@ -4,6 +4,7 @@
 // step-1 : import from geometrix
 import type {
 	//tContour,
+	//tOuterInner,
 	tParamDef,
 	tParamVal,
 	tGeom,
@@ -91,14 +92,14 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		for (let i = 0; i < param.N1; i++) {
 			ctrCircle.addPartial(partialCtr.rotate(0, 0, i * rotAngle));
 		}
-		figCircle.addMain(ctrCircle);
+		figCircle.addMainO(ctrCircle);
 		// figLine
 		const ctrLine = contour(0, 0).addSegStrokeR(0, -param.E).addPartial(partialCtr);
 		for (let i = 1; i < param.N2; i++) {
 			ctrLine.addSegStrokeR(param.B, 0).addPartial(partialCtr.scale(0, 0, sarr[i]));
 		}
 		ctrLine.addSegStrokeR(0, param.E).closeSegStroke();
-		figLine.addMain(ctrLine);
+		figLine.addMainO(ctrLine);
 		// final figure list
 		rGeome.fig = {
 			faceCircle: figCircle,

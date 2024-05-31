@@ -4,6 +4,7 @@
 // step-1 : import from geometrix
 import type {
 	//tContour,
+	//tOuterInner,
 	tParamDef,
 	tParamVal,
 	tGeom,
@@ -103,14 +104,14 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 				.addSegStrokeR(param.A, 0);
 		}
 		ctrCartesian.addSegStrokeR(0, -param.H1).closeSegStroke();
-		figCartesian.addMain(ctrCartesian);
+		figCartesian.addMainO(ctrCartesian);
 		// figPolarAbs
 		const ctrPolarAbs = contour(R1, 0);
 		for (let i = 1; i < param.N2; i++) {
 			ctrPolarAbs.addSegStrokeAP(i * angularStep, R2).addSegStrokeAP(i * angularStep, R1);
 		}
 		ctrPolarAbs.addSegStrokeAP(0, R2).closeSegStroke();
-		figPolarAbs.addMain(ctrPolarAbs);
+		figPolarAbs.addMainO(ctrPolarAbs);
 		// figPolarRel
 		const ctrPolarRel = contour(0, 0)
 			.addSegStrokeRP(Math.PI / 3, param.S)
@@ -121,7 +122,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 			.addSegStrokeRP((-2 * Math.PI) / 9, param.S)
 			.addSegStrokeRP(-Math.PI / 3, param.S)
 			.closeSegStroke();
-		figPolarRel.addMain(ctrPolarRel);
+		figPolarRel.addMainO(ctrPolarRel);
 		// final figure list
 		rGeome.fig = {
 			faceCartesian: figCartesian,

@@ -3,6 +3,7 @@
 
 import type {
 	//tContour,
+	tOuterInner,
 	tParamDef,
 	tParamVal,
 	tGeom,
@@ -68,9 +69,10 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		}
 		rGeome.logstr += `myPartB-length: ${ffix(param.L1)} mm\n`;
 		// figFront
+		const fFront: tOuterInner = [];
 		switch (param.extShape) {
 			case 0: // circle
-				figFront.addMain(contourCircle(0, 0, R1));
+				fFront.push(contourCircle(0, 0, R1));
 				break;
 			case 1: // triangle-up
 				{
@@ -78,7 +80,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 						.addSegStrokeR(-2 * triA, -triA - R1)
 						.addSegStrokeR(4 * triA, 0)
 						.closeSegStroke();
-					figFront.addMain(ctr1);
+					fFront.push(ctr1);
 				}
 				break;
 			case 2: // triangle-down
@@ -87,7 +89,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 						.addSegStrokeR(2 * triA, triA + R1)
 						.addSegStrokeR(-4 * triA, 0)
 						.closeSegStroke();
-					figFront.addMain(ctr2);
+					fFront.push(ctr2);
 				}
 				break;
 			default:
@@ -101,15 +103,16 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 				.closeSegStroke();
 			switch (param.intShape) {
 				case 0: // straight
-					figFront.addMain(ctr3);
+					fFront.push(ctr3);
 					break;
 				case 1: // slanted
-					figFront.addMain(ctr3.rotate(0, 0, Math.PI / 4));
+					fFront.push(ctr3.rotate(0, 0, Math.PI / 4));
 					break;
 				default:
 					throw `err107: param.intShape ${param.intShape} unkown!`;
 			}
 		}
+		figFront.addMainOI(fFront);
 		// figSide
 		const ctrSide = contour(-param.L1 / 2, -R1)
 			.addSegStrokeR(param.L1, 0)

@@ -4,6 +4,7 @@
 // step-1 : import from geometrix
 import type {
 	//tContour,
+	//tOuterInner,
 	tParamDef,
 	tParamVal,
 	tGeom,
@@ -68,8 +69,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		rGeome.logstr += `myPartA-internal-diameter: ${ffix(param.D1 - 2 * param.E1)} mm\n`;
 		// step-7 : drawing of the figures
 		// figSection
-		figSection.addMain(contourCircle(0, 0, R1));
-		figSection.addMain(contourCircle(0, 0, R1 - param.E1));
+		figSection.addMainOI([contourCircle(0, 0, R1), contourCircle(0, 0, R1 - param.E1)]);
 		// figSide
 		const ctrCylinderSideRight = contour(R1, 0)
 			.addSegStrokeA(R1, param.L1)
@@ -81,7 +81,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 			.addSegStrokeR(0, param.L1)
 			.addSegStrokeR(-param.E1, 0)
 			.closeSegStroke();
-		figSide.addMain(ctrCylinderSideRight);
+		figSide.addMainO(ctrCylinderSideRight);
 		figSide.addSecond(ctrCylinderSideLeft);
 		// final figure list
 		rGeome.fig = {

@@ -4,6 +4,7 @@
 // step-1 : import from geometrix
 import type {
 	//tContour,
+	tOuterInner,
 	tParamDef,
 	tParamVal,
 	tGeom,
@@ -70,40 +71,40 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		rGeome.logstr += `myPartG size horizontal: ${ffix(sizeH)} mm, vertical: ${ffix(sizeV)} mm\n`;
 		// step-7 : drawing of the figures
 		// figTransforms
+		const fTransforms: tOuterInner = [];
 		// contour of external outline
 		const ctrExt = contour(0, 0)
 			.addSegStrokeR(sizeH, 0)
 			.addSegStrokeR(0, sizeV)
 			.addSegStrokeR(-sizeH, 0)
 			.closeSegStroke();
-		figTransforms.addMain(ctrExt);
+		fTransforms.push(ctrExt);
 		// contour of first Hollow
 		const ctrH1 = contour(param.C, stepV)
 			.addSegStrokeR(param.A, 0)
 			.addSegStrokeR(-param.A / 2, param.B)
 			.addCornerRounded(param.R)
 			.closeSegStroke();
-		figTransforms.addMain(ctrH1);
+		fTransforms.push(ctrH1);
 		// scale and translate 1
 		const ctrH2a = ctrH1.scale(param.C, stepV, param.SF1, false); // scale
 		const ctrH2b = ctrH2a.translate(param.A + param.C, 0); // translate
-		figTransforms.addMain(ctrH2b);
+		fTransforms.push(ctrH2b);
 		// scale and translate 2
 		const translateX = (1 + param.SF1) * param.A + 2 * param.C;
-		figTransforms.addMain(
-			ctrH1.scale(param.C, stepV, param.SF1, true).translate(translateX, 0)
-		); // scale + translate in one line
+		fTransforms.push(ctrH1.scale(param.C, stepV, param.SF1, true).translate(translateX, 0)); // scale + translate in one line
 		// rotate and translate 1
 		const ctrH4 = ctrH1
 			.rotate(param.C + param.A / 2, stepV + param.B / 2, degToRad(param.Z1))
 			.translatePolar((2 * Math.PI) / 5, 2.5 * stepV);
-		figTransforms.addMain(ctrH4);
+		fTransforms.push(ctrH4);
 		// rotate and translate 2
 		const ctrH5 = ctrH1
 			.rotate(param.C + param.A / 2, stepV + param.B / 2, degToRad(-param.Z1))
 			.translatePolar((2 * Math.PI) / 5, 2.5 * stepV)
 			.translate(2 * stepV, 0);
-		figTransforms.addMain(ctrH5);
+		fTransforms.push(ctrH5);
+		figTransforms.addMainOI(fTransforms);
 		// final figure list
 		rGeome.fig = {
 			faceTransforms: figTransforms

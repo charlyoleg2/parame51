@@ -4,6 +4,7 @@
 // step-1 : import from geometrix
 import type {
 	//tContour,
+	tOuterInner,
 	tParamDef,
 	tParamVal,
 	tGeom,
@@ -67,20 +68,22 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 		rGeome.logstr += `myPartI size: ${ffix(rectW)} x ${ffix(rectH)} mm\n`;
 		// step-7 : drawing of the figures
 		//fig1
+		const fFig1: tOuterInner = [];
 		const ctrOutline = contour(0, 0)
 			.addSegStrokeR(rectW, 0)
 			.addSegStrokeR(0, rectH)
 			.addCornerRounded(param.R1)
 			.addSegStrokeR(-rectW, 0)
 			.closeSegStroke();
-		fig1.addMain(ctrOutline);
+		fFig1.push(ctrOutline);
 		const ctrTriangle = contour(0, 0)
 			.addSegStrokeR(param.A, 0)
 			.addSegStrokeR(-param.A / 2, 2 * param.B)
 			.closeSegStroke();
-		fig1.addMain(ctrTriangle.translate(param.A, param.B));
-		fig1.addMain(ctrTriangle.rotate(0, 0, Math.PI).translate(3.5 * param.A, 3 * param.B));
-		fig1.addMain(ctrTriangle.translate(4 * param.A, param.B));
+		fFig1.push(ctrTriangle.translate(param.A, param.B));
+		fFig1.push(ctrTriangle.rotate(0, 0, Math.PI).translate(3.5 * param.A, 3 * param.B));
+		fFig1.push(ctrTriangle.translate(4 * param.A, param.B));
+		fig1.addMainOI(fFig1);
 		//fig2
 		fig2.mergeFigure(fig1.rotate(rectW / 2, rectH / 2, rAngle1));
 		fig2.mergeFigure(
