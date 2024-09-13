@@ -2,9 +2,9 @@
 	import { repoToHomepage } from '$lib/general';
 	import { base } from '$app/paths';
 	import { version_details } from 'geometrix';
-	import appPackage from '../../package.json';
 	import topPackage from '../../../../package.json';
 	import libPackage from '../../../desi51/package.json';
+	import appPackage from '../../package.json';
 
 	const detailed_versions = version_details(appPackage);
 </script>
@@ -27,16 +27,16 @@
 	<article>
 		<h3>{topPackage.name}</h3>
 		<code>
-			<a href={repoToHomepage(topPackage.repository.url)}>{topPackage.name}</a> version {topPackage.version}<br
-			/>
+			<a href={repoToHomepage(topPackage.repository.url)}>{topPackage.name}</a> version {topPackage.version}
 		</code>
 	</article>
 	<article>
 		<h3>desi51-ui</h3>
 		Built with
 		<a href="https://www.npmjs.com/package/geometrix">geometrix</a> and
-		<a href="https://www.npmjs.com/package/geomui">geomui</a>.<br />
+		<a href="https://www.npmjs.com/package/geomui">geomui</a>.
 		<code>
+			<br />
 			{#each detailed_versions as dversion}
 				{dversion}<br />
 			{/each}
