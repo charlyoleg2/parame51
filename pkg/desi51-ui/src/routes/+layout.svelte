@@ -1,30 +1,40 @@
 <script lang="ts">
+	import { repoToHomepage } from '$lib/general';
 	import { base } from '$app/paths';
 	import { version_details } from 'geometrix';
 	import appPackage from '../../package.json';
+	import topPackage from '../../../../package.json';
 
 	const detailed_versions = version_details(appPackage);
 </script>
 
-<h1>Welcome to desi51-ui</h1>
-<h6>
-	Showcasing the usage of the framework
-	<a href="https://github.com/charlyoleg2/parametrix">parametrix</a>.
-</h6>
-<nav>
-	<a href="{base}/">index: list of designs</a>
-</nav>
+<header>
+	<h1>Welcome to Desi51-UI</h1>
+	<h6>
+		Display the designs of <a href={topPackage.homepage}>{topPackage.name}</a>
+		powered by the framework
+		<a href="https://charlyoleg2.github.io/parametrix/">parametrix</a>.
+	</h6>
+	<nav>
+		<a href="{base}/">index: list of designs</a>
+	</nav>
+</header>
 <main>
 	<slot />
 </main>
 <footer>
 	<article>
-		<a href="https://github.com/charlyoleg2/parame51">desi51-ui</a>, an example of usage of
-		<a href="https://www.npmjs.com/package/geometrix">geometrix</a> and
-		<a href="https://www.npmjs.com/package/geomui">geomui</a>.
+		<h3>{topPackage.name}</h3>
+		<code>
+			<a href={repoToHomepage(topPackage.repository.url)}>{topPackage.name}</a> version {topPackage.version}<br
+			/>
+		</code>
 	</article>
 	<article>
-		<h3>Desi51-ui version</h3>
+		<h3>desi51-ui</h3>
+		Inteface built with
+		<a href="https://www.npmjs.com/package/geometrix">geometrix</a> and
+		<a href="https://www.npmjs.com/package/geomui">geomui</a>.<br />
 		<code>
 			{#each detailed_versions as dversion}
 				{dversion}<br />
@@ -37,10 +47,15 @@
 	:global(body) {
 		font-family: 'Courier New', 'Helvetica', 'Arial', 'Verdana';
 		margin: 0;
+		padding: 0;
 		background-color: DarkCyan;
 	}
 	h1 {
 		color: aquamarine;
+		margin: 1rem;
+		margin-bottom: 0.2rem;
+	}
+	h3 {
 		margin: 1rem;
 		margin-bottom: 0.2rem;
 	}
