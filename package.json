@@ -52,7 +52,7 @@
 		"preview": "run-s desi51-ui:preview",
 		"run-uis": "run-s desi51-uis:run",
 		"run-cli": "run-s desi51-cli:run",
-		"versions": "run-s desi51:version desi51-cli:version desi51-uis:version",
+		"versions": "run-s desi51:version desi51-ui:version desi51-cli:version desi51-uis:version",
 		"gh-publish": "run-s desi51:publish desi51-cli:publish desi51-uis:publish",
 		"ls-workspaces": "npm -ws exec -c pwd"
 	},
