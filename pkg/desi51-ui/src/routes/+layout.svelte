@@ -4,6 +4,7 @@
 	import { version_details } from 'geometrix';
 	import appPackage from '../../package.json';
 	import topPackage from '../../../../package.json';
+	import libPackage from '../../../desi51/package.json';
 
 	const detailed_versions = version_details(appPackage);
 </script>
@@ -11,8 +12,8 @@
 <header>
 	<h1>Welcome to Desi51-UI</h1>
 	<h6>
-		Display the designs of <a href={topPackage.homepage}>{topPackage.name}</a>
-		powered by the framework
+		Display the designs of <a href={topPackage.homepage}>{libPackage.name}</a>. Powered by the
+		framework
 		<a href="https://charlyoleg2.github.io/parametrix/">parametrix</a>.
 	</h6>
 	<nav>
@@ -32,7 +33,7 @@
 	</article>
 	<article>
 		<h3>desi51-ui</h3>
-		Inteface built with
+		Built with
 		<a href="https://www.npmjs.com/package/geometrix">geometrix</a> and
 		<a href="https://www.npmjs.com/package/geomui">geomui</a>.<br />
 		<code>
