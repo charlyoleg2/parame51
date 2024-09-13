@@ -60,7 +60,7 @@
 		"geometrix": "^0.5.48"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.8.0",
+		"@eslint/js": "^9.10.0",
 		"@types/eslint__js": "^8.42.3",
 		"bats": "^1.11.0",
 		"eslint": "^9.10.0",
@@ -70,7 +70,7 @@
 		"shx": "^0.3.4",
 		"tsup": "^8.2.4",
 		"typescript": "^5.6.2",
-		"typescript-eslint": "^8.4.0",
-		"vitest": "^2.0.5"
+		"typescript-eslint": "^8.5.0",
+		"vitest": "^2.1.1"
 	}
 }
