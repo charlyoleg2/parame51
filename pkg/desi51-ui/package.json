@@ -1,6 +1,6 @@
 {
 	"name": "desi51-ui",
-	"description": "The sveltekit app for desi51",
+	"description": "sveltekit-ui for desi51",
 	"version": "0.5.8",
 	"private": true,
 	"repository": {

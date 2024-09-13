@@ -19,7 +19,7 @@ Installation
 ------------
 
 ```bash
-npm i -D desiXY-cli
+npm i -D desi51-cli
 ```
 
 
@@ -27,8 +27,8 @@ Usage
 -----
 
 ```bash
-npx desiXY-cli
-npx desiXY-cli --help
+npx desi51-cli
+npx desi51-cli --help
 ```
 
 

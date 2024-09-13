@@ -1,4 +1,4 @@
-# .gitignore of geometrix
+# .gitignore
 dist/
 build/
 # vitest creates node_modules for the results.json
