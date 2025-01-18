@@ -49,7 +49,7 @@ const pDef: tParamDef = {
 		C: 'myPartG_transforms.svg',
 		SF1: 'myPartG_transforms.svg',
 		Z1: 'myPartG_transforms.svg',
-		extrudLength: 'myPartG_transforms'
+		extrudLength: 'myPartG_transforms.svg'
 	},
 	sim: {
 		tMax: 180,
