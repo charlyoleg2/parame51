@@ -39,7 +39,8 @@ const pDef: tParamDef = {
 		pNumber('R', 'mm', 10, 0, 50, 1),
 		pNumber('C', 'mm', 100, 10, 400, 1),
 		pNumber('SF1', '1.0', 2, 0.5, 3, 0.1),
-		pNumber('Z1', 'degree', 45, -180, 180, 1)
+		pNumber('Z1', 'degree', 45, -180, 180, 1),
+		pNumber('extrudLength', 'mm', 10, 1, 100, 1)
 	],
 	paramSvg: {
 		A: 'myPartG_transforms.svg',
@@ -47,7 +48,8 @@ const pDef: tParamDef = {
 		R: 'myPartG_transforms.svg',
 		C: 'myPartG_transforms.svg',
 		SF1: 'myPartG_transforms.svg',
-		Z1: 'myPartG_transforms.svg'
+		Z1: 'myPartG_transforms.svg',
+		extrudLength: 'myPartG_transforms'
 	},
 	sim: {
 		tMax: 180,
