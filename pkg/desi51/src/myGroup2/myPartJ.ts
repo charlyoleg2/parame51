@@ -252,7 +252,7 @@ function pGeom(t: number, param: tParamVal, suffix = ''): tGeom {
 // step-11 : definiton of the final object that gathers the precedent object and function
 const myPartJDef: tPageDef = {
 	pTitle: 'My Part-J',
-	pDescription: 're-using figues of other designs',
+	pDescription: 're-using figures of other designs',
 	pDef: pDef,
 	pGeom: pGeom
 };
