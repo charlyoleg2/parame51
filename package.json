@@ -1,6 +1,6 @@
 {
 	"name": "parame51",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "The mono-repo for desi51, desi51-cli, desi51-ui and desi51-uis",
 	"private": true,
 	"repository": {
