@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
-//import { serve } from './desi51-uis';
+//import * from './desi51-uis'
 
-describe('desi51-uis suit', () => {
-	it('desi51-uis execution', () => {
-		expect(2 + 2).toBe(4);
+describe('sum test', () => {
+	it('adds 1 + 2 to equal 3', () => {
+		expect(1 + 2).toBe(3);
 	});
 });
