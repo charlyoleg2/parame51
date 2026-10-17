@@ -31,8 +31,8 @@ import {
 } from 'geometrix';
 
 // design import
-import { myPartADef } from '../myGroup1/myPartA';
-import { myPartDDef } from '../myGroup1/myPartD';
+import { myPartADef } from '../myGroup1/myPartA.ts';
+import { myPartDDef } from '../myGroup1/myPartD.ts';
 
 // step-2 : definition of the parameters and more (part-name, svg associated to each parameter, simulation parameters)
 const pDef: tParamDef = {
